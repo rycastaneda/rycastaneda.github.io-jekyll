@@ -1,0 +1,27 @@
+<dom-module id="config">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+    </template>
+    <script>
+        Polymer({
+            is: 'config',
+            properties: {
+                linkedInApp: {
+                    type: Object,
+                    value: function () {
+                        console.log("   test");
+                        return {
+                            linkedInClientID: '75n2xi1snbreal',
+                            linkedInClientSecret:  'qA2LSjXNJqiANAHI',
+                            linkedInRedirectUrl:  '4RmcRZ4d4jo8fwhT'
+                        };
+                    }
+                }
+            }
+        });
+    </script>
+</dom-module>

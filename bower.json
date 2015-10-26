@@ -1,0 +1,26 @@
+{
+  "name": "polymer",
+  "version": "0.0.0",
+  "authors": [
+    "Ryan <castaneda.ry@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.1.4",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.1",
+    "page": "visionmedia/page.js#~1.6.3",
+    "Materialize": "materialize#~0.97.1",
+    "iron-localstorage": "PolymerElements/iron-localstorage#~1.0.4",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.6",
+    "iron-pages": "PolymerElements/iron-pages#~1.0.3",
+    "iron-image": "PolymerElements/iron-image#~1.0.2",
+    "font-awesome": "fontawesome#~4.4.0"
+  }
+}

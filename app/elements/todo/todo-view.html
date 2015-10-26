@@ -1,0 +1,72 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="todo-view">
+    <template>
+        <style>
+            :host {
+                display: block;
+                color: var(--light-primary-color);
+            }
+        </style>
+        <div hidden="{{taskLeft(todos.list.length)}}">No task left</div>
+
+        <todo-control on-clear-all="clearAll" current-todo="{{currentTodo}}" filter-selection="{{filterSelection}}"></todo-control>
+
+            <todo-list todos="{{todos.list}}" on-delete="deleteTodo" on-selected-todo="selectedTodo" filter-selection="{{filterSelection}}"></todo-list>
+
+        <paper-input id='todoInput' on-keydown="_checkAdd"></paper-input>
+        <iron-ajax id="ajaxTodo" handle-as="json" on-response="handleResponse"></iron-ajax>
+    </template>
+    <script>
+        Polymer({
+            is: 'todo-view',
+            properties: {
+                // todos: {
+                //     observer: 'changeCurrentTodo'
+                // }
+            },
+            // changeCurrentTodo : function (data) {
+            //     console.log("data changeCurrentTodo", data);
+            //     this.currentTodo = this.todos.list[data.current_todo];
+            //     this.todos.current_todo = data.current_todo;
+            //     console.log("called", this.todos);
+            // },
+            selectedTodo : function (event) {
+                this.todos.current_todo = event.detail.index;
+                this.currentTodo = this.todos.list[this.todos.current_todo];
+                // notify binding
+                this.notifyPath('todos.current_todo', this.todos.current_todo);
+                console.log("this.todos selected ", this.todos);
+            },
+            clearAll : function () {
+                this.todos.list = [];
+                this.notifyPath('todos.list', []);
+                this.currentTodo = {};
+            },
+            addTodo: function (e) {
+                if (!this.$.todoInput.value) {
+                    return;
+                }
+                this.push('todos.list', {label: this.$.todoInput.value, isComplete: false});
+                this.$.todoInput.value = '';
+                this.filterSelection = 'all';
+            },
+            handleResponse: function (data) {
+                this.todo = data.detail;
+                this.notifyPath('todos.current_todo', this.todos.current_todo);
+            },
+            taskLeft: function (length) {
+                return !!length;
+            },
+            _checkAdd: function (e) {
+                if (e.keyCode === 13) {
+                   this.addTodo();
+                }
+            },
+            deleteTodo: function () {
+
+            }
+
+        });
+    </script>
+</dom-module>

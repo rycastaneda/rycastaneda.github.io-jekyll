@@ -1,0 +1,22 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="github-view">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <div class="row">
+            GITHUB REPOS
+            <span>{{repos.length}}</span>
+            <github-list repos="{{repos}}"></github-list>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'github-view',
+        });
+    </script>
+</dom-module>

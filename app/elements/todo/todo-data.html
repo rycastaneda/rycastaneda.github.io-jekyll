@@ -1,0 +1,49 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="todo-data">
+<template>
+    <iron-localstorage name="my-app-storage"
+        value="{{todos}}"
+        on-iron-localstorage-load-empty="initializeDefaultTodos"
+        on-iron-localstorage-load="LSLoaded"
+      ></iron-localstorage>
+</template>
+    <script>
+        Polymer({
+            is: 'todo-data',
+            properties: {
+                todos: {
+                    type: Object,
+                    notify: true
+                },
+            },
+            initializeDefaultTodos: function () {
+                this.todos = {
+                    current_todo: 0,
+                    list: [
+                        {
+                            label: 'from todo data',
+                            isComplete: true
+                        },
+                        {
+                            label: 'from todo data #2',
+                            isComplete: false
+                        }
+                    ]
+                };
+            },
+            LSLoaded: function () {
+                console.log("this loaded", this.todos);
+            },
+            todosChanged : function (data) {
+                console.log("data todos chanbged", data);
+            },
+            selectedTodo : function (event) {
+                this.todos.current_todo = event.detail.index;
+                this.currentTodo = this.todos.list[this.todos.current_todo];
+                console.log("this.todos", this.todos);
+            }
+
+        });
+    </script>
+</dom-module>

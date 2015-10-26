@@ -1,0 +1,46 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="todo-control">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <h1>{{currentTodo.label}}</h1>
+        <!-- <paper-input value="foo::input"></paper-input> -->
+        <div class="row">
+            <div class="col s8">
+                Filter:
+                <paper-radio-group id="groupbtn" selected="{{filterSelection}}">
+                  <paper-radio-button name="done">Done</paper-radio-button>
+                  <paper-radio-button name="pending">Pending</paper-radio-button>
+                  <paper-radio-button name="all">All</paper-radio-button>
+                </paper-radio-group>
+            </div>
+            <div class="col s4">
+                <paper-button on-click="_clearAll" raised>Clear All</paper-button>
+            </div>
+
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'todo-control',
+            properties: {
+                filterSelection: {
+                    type: String,
+                    notify: true,
+                    value: 'all'
+                }
+            },
+            ready: function () {
+            },
+            _clearAll: function () {
+                this.fire('clear-all', {});
+            },
+            selectionChanged: function () {
+            }
+        });
+    </script>
+</dom-module>

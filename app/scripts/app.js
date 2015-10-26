@@ -22,11 +22,16 @@ page('/github', function () {
     app.route = 'github';
 });
 
-
-page('/', function (data) {
-    // app.route = 'linkedin';
+page('/home', function (data) {
+    app.route = 'home';
     console.log("test");
 });
+
+page('/', function (data) {
+    app.route = 'home';
+    console.log("test");
+});
+
 
 page({ hashbang: true });
     // template.route = 'linkedin'; // selected is an index by default

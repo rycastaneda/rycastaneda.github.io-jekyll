@@ -35,12 +35,11 @@
                 this.todos.current_todo = event.detail.index;
                 this.currentTodo = this.todos.list[this.todos.current_todo];
                 // notify binding
-                this.notifyPath('todos.current_todo', this.todos.current_todo);
+                this.set('todos.current_todo', event.detail.index);
                 console.log("this.todos selected ", this.todos);
             },
             clearAll : function () {
-                this.todos.list = [];
-                this.notifyPath('todos.list', []);
+                this.set('todos.list', []);
                 this.currentTodo = {};
             },
             addTodo: function (e) {

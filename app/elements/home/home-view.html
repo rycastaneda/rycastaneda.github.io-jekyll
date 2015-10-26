@@ -1,0 +1,44 @@
+<dom-module id="home-view">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            paper-material {
+                background: var(--primary-background-color);
+                color: var(--primary-text-color);
+            }
+            .space {
+                padding: 10px;
+            }
+
+        </style>
+            <div class="row">
+                <div class="col s12">
+
+                    <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+                </div>
+                <div class="col s12 welcome">
+                        <p class="center">
+                            A ninja when it comes to text editors, good with arrays, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.
+                        </p>
+                </div>
+                <div class="space">&nbsp;</div>
+                <div class="col s4 welcome">
+                        <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+                </div>
+                <div class="col s4 welcome">
+                        <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+                </div>
+                <div class="col s4 welcome">
+                        <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+                </div>
+
+            </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'home-view'
+        });
+    </script>
+</dom-module>

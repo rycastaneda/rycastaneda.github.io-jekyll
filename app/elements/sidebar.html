@@ -20,11 +20,14 @@
             }
         </style>
 
+        <div class="center info" hidden="{{!loading}}">
+            <paper-spinner id="spinner" active="loading"></paper-spinner>
+        </div>
         <div class="center info">
             <a  class="light" href="{{profile.blog}}">
-                <img src="{{profile.avatar_url}}" class="circle responsive-img" alt="">
+                <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
             </a>
-            <div>
+            <div hidden="{{loading}}">
                 <h5>{{profile.name}}</h5>
                 <a href="{{profile.blog}}">{{profile.blog}}</a><br>
                 <h6><i class="fa fa-map-marker">&nbsp;</i>{{profile.location}}</h6>
@@ -38,6 +41,9 @@
         </div>
         <paper-toolbar>
             <paper-menu id="menu" selected="{{route}}" attr-for-selected="data-menu">
+                <paper-item class="menu-item" role="menuitem" on-tap="onSelect" data-menu="home">
+                    Home
+                </paper-item>
                 <paper-item class="menu-item" role="menuitem" on-tap="onSelect" data-menu="todo">
                     Todo App
                 </paper-item>
@@ -51,8 +57,24 @@
     <script>
         Polymer({
             is: 'my-sidebar',
+            properties: {
+                profile: {
+                    type: Object,
+                    observer: '_loading'
+                },
+                loading: {
+                    type: Boolean,
+                    value: true
+                }
+            },
+            _loading : function () {
+                console.log("this.profile", this.profile);
+                this.loading = false;
+                this.$$('#spinner').active = false;
+            },
             onSelect: function(e){
                 var link = e.currentTarget.getAttribute('data-menu');
+                console.log("link", link);
                 page('/' + link);
             }
         });

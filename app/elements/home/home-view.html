@@ -12,33 +12,93 @@
                 padding: 10px;
             }
 
+            .header {
+                color: var(--accent-color);
+            }
+
         </style>
             <div class="row">
                 <div class="col s12">
-
-                    <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+                    <img class="responsive-img" src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg">
                 </div>
-                <div class="col s12 welcome">
-                        <p class="center">
-                            A ninja when it comes to text editors, good with arrays, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.
-                        </p>
+            </div>
+            <div class="parallax-container valign-wrapper">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <div class="row center">
+                            <a href="https://twitter.com/_rycastaneda" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @_rycastaneda</a>
+                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                            <h3 class="header">About me</h3>
+                            <h5 class="col s12 light">A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.</h5>
+                        </div>
+                    </div>
                 </div>
-                <div class="space">&nbsp;</div>
-                <div class="col s4 welcome">
-                        <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <skills-list skills="{{skills}}"></skills-list>
+                    </div>
                 </div>
-                <div class="col s4 welcome">
-                        <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
-                </div>
-                <div class="col s4 welcome">
-                        <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
-                </div>
-
             </div>
     </template>
     <script>
         Polymer({
-            is: 'home-view'
+            is: 'home-view',
+            properties: {
+                skills: {
+                    type: Array,
+                    value: function () {
+                        return [
+                            {
+                                skill: 'Angular JS',
+                                logo : 'http://res.cloudinary.com/buddahbelly/image/upload/v1423072364/brilliantbritz/angular-js.png',
+                                rating: 9,
+                            },
+                            {
+                                skill: 'Polymer',
+                                logo : 'http://mobilemancer.com/wp-content/uploads/2015/01/Polymer-logo-featured.png',
+                                rating: 6
+                            },
+                            {
+                                skill: 'React JS',
+                                logo : 'https://www.codementor.io/assets/topic/category/2x/reactjs.png',
+                                rating: 5
+                            },
+                            {
+                                skill: 'Native JavaScript',
+                                logo: 'http://inspiredtoeducate.net/inspiredtoeducate/wp-content/uploads/2013/12/js-logo.png',
+                                rating: 7
+                            },
+                            {
+                                skill: 'CSS3',
+                                logo: 'http://grahamtylerwong.com/images/Icons/css3logo_large.png',
+                                rating: 6
+                            },
+                            {
+                                skill: 'NodeJS',
+                                logo: 'https://nodejs.org/static/images/logos/js-black.svg',
+                                rating: 6
+                            },
+                            {
+                                skill: 'PHP Laravel',
+                                logo: 'http://futureprofilez.com/wp-content/uploads/2014/07/laravel.png',
+                                rating: 8
+                            },
+                            {
+                                skill: 'MySQL',
+                                logo: 'http://www.instantdb.co.uk/mysql.png',
+                                rating: 7
+                            },
+                            {
+                                skill: 'MongoDB',
+                                logo: 'https://blog.rootshell.be/wp-content/uploads/2015/03/mongodb-gui-tools.png',
+                                rating: 7
+                            },
+                        ];
+                    }
+                }
+            }
         });
     </script>
 </dom-module>

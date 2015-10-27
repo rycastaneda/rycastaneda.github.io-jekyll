@@ -5,7 +5,6 @@
     <iron-localstorage name="my-app-storage"
         value="{{todos}}"
         on-iron-localstorage-load-empty="initializeDefaultTodos"
-        on-iron-localstorage-load="LSLoaded"
       ></iron-localstorage>
 </template>
     <script>
@@ -22,26 +21,19 @@
                     current_todo: 0,
                     list: [
                         {
-                            label: 'from todo data',
+                            label: 'Sample todo data',
                             isComplete: true
                         },
                         {
-                            label: 'from todo data #2',
+                            label: 'Sample todo data #2',
                             isComplete: false
                         }
                     ]
                 };
             },
-            LSLoaded: function () {
-                console.log("this loaded", this.todos);
-            },
-            todosChanged : function (data) {
-                console.log("data todos chanbged", data);
-            },
             selectedTodo : function (event) {
                 this.todos.current_todo = event.detail.index;
                 this.currentTodo = this.todos.list[this.todos.current_todo];
-                console.log("this.todos", this.todos);
             }
 
         });

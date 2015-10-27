@@ -4,14 +4,10 @@
 // console.log("   page",     page);
 
 
-
 var app = document.querySelector('#layout');
-console.log("   app",     app);
-console.log("   app.route",     app.route);
 
 page('/todo', function () {
     app.route = 'todo';
-console.log("   app.route",     app.route);
 });
 
 page('/linkedin', function () {
@@ -22,14 +18,12 @@ page('/github', function () {
     app.route = 'github';
 });
 
-page('/home', function (data) {
+page('/home', function () {
     app.route = 'home';
-    console.log("test");
 });
 
-page('/', function (data) {
+page('/', function () {
     app.route = 'home';
-    console.log("test");
 });
 
 

@@ -35,16 +35,16 @@
                     };
                 }
 
-                return function(item) {
+                return function () {
                   return true;
                 };
             },
-            _computeTaskDone: function (todos) {
+            _computeTaskDone: function () {
                 return this.todos.filter(function(e){
                     return e.isComplete;
                 }).length;
             },
-            _computeTaskLeft: function (todos) {
+            _computeTaskLeft: function () {
                 return this.todos.filter(function(e){
                     return !e.isComplete;
                 }).length;

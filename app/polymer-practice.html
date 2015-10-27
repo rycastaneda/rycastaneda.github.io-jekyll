@@ -28,12 +28,12 @@
                 <paper-header-panel main class="container">
                     <paper-toolbar>
                         <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-                        <iron-pages selected="{{route}}" attr-for-selected="data-menu" class="layout center container">
-                            <div data-menu="todo">
+                        <iron-pages selected="{{route}}" attr-for-selected="data-menu" class="center ">
+                            <div data-menu="todo" class="container">
                                 <todo-data todos="{{todos}}"></todo-data>
                                 <todo-view todos="{{todos}}"></todo-view>
                             </div>
-                            <div data-menu="github">
+                            <div data-menu="github" class="container">
                                 <github-data repos="{{repos}}" profile="{{profile}}"></github-data>
                                 <github-view repos="{{repos}}"></github-view>
                             </div>

@@ -8,8 +8,8 @@
             }
         </style>
 
-        <iron-ajax url="http://api.github.com/users/rycastaneda/repos" handle-as="json" on-response="handleResponse" auto></iron-ajax>
-        <iron-ajax id="githubAjax" url="http://api.github.com/users/rycastaneda" handle-as="json" on-response="handleGithubResponse" auto></iron-ajax>
+        <iron-ajax url="http://api.github.com/users/rycastaneda/repos" params='{"client_id": "b51ec3a72546386e0868", "client_secret": "2135f64f4d72887ed7215bb3fef6fdd22e6559f6"}' handle-as="json" on-response="handleResponse" auto></iron-ajax>
+        <iron-ajax id="githubAjax" url="http://api.github.com/users/rycastaneda" params='{"client_id": "b51ec3a72546386e0868", "client_secret": "2135f64f4d72887ed7215bb3fef6fdd22e6559f6"}' handle-as="json" on-response="handleGithubResponse" auto></iron-ajax>
     </template>
     <script>
         Polymer({

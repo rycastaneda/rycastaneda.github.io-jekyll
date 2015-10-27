@@ -12,37 +12,28 @@
 
         <todo-control on-clear-all="clearAll" current-todo="{{currentTodo}}" filter-selection="{{filterSelection}}"></todo-control>
 
-            <todo-list todos="{{todos.list}}" on-delete="deleteTodo" on-selected-todo="selectedTodo" filter-selection="{{filterSelection}}"></todo-list>
+        <todo-list todos="{{todos.list}}" on-delete="deleteTodo" on-selected-todo="selectedTodo" on-todos-changed="todoListener" filter-selection="{{filterSelection}}"></todo-list>
 
         <paper-input id='todoInput' on-keydown="_checkAdd"></paper-input>
-        <iron-ajax id="ajaxTodo" handle-as="json" on-response="handleResponse"></iron-ajax>
     </template>
     <script>
         Polymer({
             is: 'todo-view',
             properties: {
-                // todos: {
-                //     observer: 'changeCurrentTodo'
-                // }
             },
-            // changeCurrentTodo : function (data) {
-            //     console.log("data changeCurrentTodo", data);
-            //     this.currentTodo = this.todos.list[data.current_todo];
-            //     this.todos.current_todo = data.current_todo;
-            //     console.log("called", this.todos);
-            // },
+            todoListener : function (data) {
+                console.log('todos change listener', data);
+            },
             selectedTodo : function (event) {
                 this.todos.current_todo = event.detail.index;
                 this.currentTodo = this.todos.list[this.todos.current_todo];
-                // notify binding
                 this.set('todos.current_todo', event.detail.index);
-                console.log("this.todos selected ", this.todos);
             },
             clearAll : function () {
                 this.set('todos.list', []);
                 this.currentTodo = {};
             },
-            addTodo: function (e) {
+            addTodo: function () {
                 if (!this.$.todoInput.value) {
                     return;
                 }
@@ -65,7 +56,6 @@
             deleteTodo: function () {
 
             }
-
         });
     </script>
 </dom-module>

@@ -68,13 +68,11 @@
                 }
             },
             _loading : function () {
-                console.log("this.profile", this.profile);
                 this.loading = false;
                 this.$$('#spinner').active = false;
             },
             onSelect: function(e){
                 var link = e.currentTarget.getAttribute('data-menu');
-                console.log("link", link);
                 page('/' + link);
             }
         });

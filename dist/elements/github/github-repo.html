@@ -1,0 +1,57 @@
+<dom-module id="github-repo">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            .repo {
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+            paper-card {
+                --paper-card-header-color: var(--dark-primary-color);
+            }
+            paper-card:hover {
+                cursor: pointer
+            }
+            .card-actions {
+                color: var(--dark-primary-color);
+            }
+            --paper-card-header-image-text {
+                color: var(--primary-text-color);
+            }
+            .card-actions {
+                margin: 5px;
+            }
+        </style>
+        <div class="col m4 s12 repo">
+            <paper-card image="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" on-tap="gotoRepo" heading="{{repo.name}}">
+                <div class="card-actions">
+                    <div class="left">
+                        <i class="fa fa-code-fork">{{repo.forks_count}}</i>
+                        <i class="fa fa-star">{{repo.stargazers_count}}</i>
+                    </div>
+                    <div class="right">{{repo.language}}</div>
+                </div>
+            </paper-card>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'github-repo',
+            properties: {
+                placehold_image: {
+                    type: String,
+                    computed: '_computeImage(repo.name)'
+                }
+            },
+            gotoRepo : function () {
+                page(this.repo.html_url);
+            },
+            _computeImage: function () {
+                return 'http://placehold.it/300?text=' + this.repo.name;
+            }
+
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,22 @@
+<dom-module id="github-list">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <div class="row">
+            <div class="col s12">
+                <template is="dom-repeat" items="{{repos}}" as="repo">
+                    <github-repo repo="{{repo}}">
+                    </github-repo>
+                </template>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'github-list'
+        });
+    </script>
+</dom-module>

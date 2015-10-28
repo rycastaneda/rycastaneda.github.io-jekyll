@@ -1,5 +1,3 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-
 <dom-module id="polymer-practice">
     <template>
         <style>
@@ -9,7 +7,7 @@
             paper-drawer-panel {
                 --paper-drawer-panel-left-drawer-container: {
                     background-color: var(--primary-background-color);
-                    color: var(--dark-primary-color) !important;
+                    color: var(--dark-primary-color);
                 }
                 --paper-drawer-panel-main-container: {
                     background-color: var(--dark-primary-color);
@@ -25,7 +23,7 @@
                 <paper-header-panel drawer>
                     <my-sidebar profile="{{profile}}"></my-sidebar>
                 </paper-header-panel>
-                <paper-header-panel main class="container">
+                <paper-header-panel main class="main-container">
                     <paper-toolbar>
                         <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                         <iron-pages selected="{{route}}" attr-for-selected="data-menu" class="center ">

@@ -1,0 +1,20 @@
+<dom-module id="my-skill">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <div class="col s4">
+            <iron-image src="{{skill.logo}}" class="responsive-img" preload sizing="cover" style="width:140px; height:140px;"></iron-image>
+            <p>
+                <h5>{{skill.skill}}</h5>
+            </p>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'my-skill'
+        });
+    </script>
+</dom-module>

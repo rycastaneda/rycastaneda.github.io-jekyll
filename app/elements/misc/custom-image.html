@@ -1,0 +1,103 @@
+<dom-module id="custom-image">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <!-- <img src="{{src}}" alt="" id="image" class="responsive-img"> -->
+        <!-- <iron-image style="background: url([[src)" src="{{src}}" class="responsive-img" preload ></iron-image> -->
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+              <div class="container">
+                <br><br>
+                <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+                <div class="row center">
+                  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+                <div class="row center">
+                  <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+                </div>
+                <br><br>
+
+              </div>
+            </div>
+            <div class="parallax"><img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 326px, 0px);"></div>
+          </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'custom-image',
+            behaviors: [
+                Polymer.NeonAnimationRunnerBehavior
+            ],
+            properties: {
+                opened: {
+                    value: true
+                },
+                animationConfig: {
+                  value: function() {
+                    return {
+                      // provided by neon-animation/animations/scale-down-animation.html
+                      'entry': {
+                        // provided by neon-animation/animations/scale-up-animation.html
+                        name: 'fade-in-animation',
+                        node: this.$.image
+                      },
+                      'exit': {
+                        // provided by neon-animation-animations/fade-out-animation.html
+                        name: 'fade-out-animation',
+                        node: this.$.image
+                      }
+                    };
+                  }
+                }
+              },
+              listeners: {
+                // this event is fired when the animation finishes
+                'neon-animation-finish': '_onNeonAnimationFinish'
+              },
+              show: function() {
+                this.opened = true;
+                // this.style.display = 'inline-block';
+                // run scale-down-animation
+                this.playAnimation('entry');
+              },
+              hide: function() {
+                this.opened = false;
+                // run fade-out-animation
+                this.playAnimation('exit');
+              },
+              toggle: function () {
+                // if(this.opened) {
+
+                //     this.opened = !this.opened
+                //     this.playAnimation('exit');
+                // } else {
+
+                // console.log("this.opened", this.opened);
+                //     this.opened = !this.opened
+                //     this.playAnimation('entry');
+                // }
+                this.opened = !this.opened;
+                console.log("this.opened", this.opened);
+                console.log("this.opened ? 'entry' : 'exit'", this.opened ? 'entry' : 'exit');
+                this.playAnimation(this.opened ? 'entry' : 'exit');
+              },
+              ready: function () {
+                // console.log("image ready");
+                this.playAnimation('entry');
+              },
+              _onNeonAnimationFinish: function() {
+                console.log('animation done!');
+                // if(!this.opened){
+
+                // this.$.image.style.display= 'none';
+                // }
+                this.$.image.style.display= this.opened ? 'inline-block' : 'none';
+                // this.opened = !this.opened;
+
+              }
+        });
+    </script>
+</dom-module>

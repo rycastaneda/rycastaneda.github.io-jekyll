@@ -44,7 +44,7 @@ var styleTask = function (stylesPath, srcs) {
     .pipe($.changed(stylesPath, {extension: '.css'}))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/' + stylesPath))
-    .pipe($.cssmin())
+    // .pipe($.cssmin())
     .pipe(gulp.dest('dist/' + stylesPath))
     .pipe($.size({title: stylesPath}));
 };
@@ -173,7 +173,7 @@ gulp.task('html', function () {
 // scripts and CSS for you.
 gulp.task('vulcanize', function () {
   return gulp.src('dist/index.html')
-    .pipe(polybuild({maximumCrush: true}))
+    .pipe(polybuild())
     .pipe(gulp.dest('dist/'));
 });
 

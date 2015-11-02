@@ -12,6 +12,10 @@ page('/github', function () {
     app.route = 'github';
 });
 
+page('/animations', function () {
+    app.route = 'animations';
+});
+
 page('/home', function () {
     app.route = 'home';
 });

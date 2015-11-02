@@ -40,7 +40,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700">
 <style is="custom-style">:root {/* Shared Styles *//*Unfortunately, we can't use nested rulesSee https://github.com/Polymer/polymer/issues/1399*/--paper-font-common-base: {font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;};--paper-font-common-code: {font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;-webkit-font-smoothing: antialiased;};--paper-font-common-expensive-kerning: {text-rendering: optimizeLegibility;};--paper-font-common-nowrap: {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;};/* Material Font Styles */--paper-font-display4: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 112px;font-weight: 300;letter-spacing: -.044em;line-height: 120px;};--paper-font-display3: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 56px;font-weight: 400;letter-spacing: -.026em;line-height: 60px;};--paper-font-display2: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 45px;font-weight: 400;letter-spacing: -.018em;line-height: 48px;};--paper-font-display1: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 34px;font-weight: 400;letter-spacing: -.01em;line-height: 40px;};--paper-font-headline: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 24px;font-weight: 400;letter-spacing: -.012em;line-height: 32px;};--paper-font-title: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 20px;font-weight: 500;line-height: 28px;};--paper-font-subhead: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 16px;font-weight: 400;line-height: 24px;};--paper-font-body2: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 500;line-height: 24px;};--paper-font-body1: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 400;line-height: 20px;};--paper-font-caption: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 12px;font-weight: 400;letter-spacing: 0.011em;line-height: 20px;};--paper-font-menu: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 13px;font-weight: 500;line-height: 24px;};--paper-font-button: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 14px;font-weight: 500;letter-spacing: 0.018em;line-height: 24px;text-transform: uppercase;};--paper-font-code2: {/* @apply(--paper-font-common-code); */font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 700;line-height: 20px;};--paper-font-code1: {/* @apply(--paper-font-common-code); */font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 500;line-height: 20px;};}</style>
 
-<style is="custom-style">:root {--dark-primary-color:#455A64;--default-primary-color:#607D8B;--light-primary-color:#CFD8DC;--text-primary-color:#FFFFFF;--accent-color:#8BC34A;--primary-background-color: #CFD8DC;--primary-text-color:#212121;--secondary-text-color:#727272;--disabled-text-color:#BDBDBD;--divider-color:#B6B6B6;/* Components *//* paper-drawer-panel */--drawer-menu-color:#ffffff;--drawer-border-color:1px solid #ccc;--drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);/* paper-menu */--paper-menu-background-color: #fff;--menu-link-color:#111111;/* paper-input */--paper-input-container-color:rgba(255, 255, 255, 0.64);--paper-input-container-focus-color: rgba(255, 255, 255, 1);--paper-input-container-input-color: #fff;}</style><style>#main {background-color: #455A64;color: #CFD8DC;overflow: auto;}#drawer {background-color: #CFD8DC;color: #455A64;}</style></head><body><div hidden="" by-vulcanize=""><dom-module id="iron-localstorage" assetpath="bower_components/iron-localstorage/"></dom-module>
+<style is="custom-style">:root {--dark-primary-color:#455A64;--default-primary-color:#607D8B;--light-primary-color:#CFD8DC;--text-primary-color:#FFFFFF;--accent-color:#8BC34A;--primary-background-color: #CFD8DC;--primary-text-color:#212121;--secondary-text-color:#727272;--disabled-text-color:#BDBDBD;--divider-color:#B6B6B6;/* Components *//* paper-drawer-panel */--drawer-menu-color:#ffffff;--drawer-border-color:1px solid #ccc;--drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);/* paper-menu */--paper-menu-background-color: #fff;--menu-link-color:#111111;/* paper-input */--paper-input-container-color:rgba(255, 255, 255, 0.64);--paper-input-container-focus-color: rgba(255, 255, 255, 1);--paper-input-container-input-color: #fff;}</style><style>#main {background-color: #455A64;color: #CFD8DC;overflow: auto;}iron-selector.paper-drawer-panel > #drawer.paper-drawer-panel {background-color: #CFD8DC ;color: #455A64;}</style></head><body class="fullbleed horizontal layout"><div hidden="" by-vulcanize=""><dom-module id="iron-localstorage" assetpath="bower_components/iron-localstorage/"></dom-module>
 <dom-module id="iron-icon" assetpath="bower_components/iron-icon/">
 
   <style>:host {@apply(--layout-inline);@apply(--layout-center-center);position: relative;vertical-align: middle;fill: currentcolor;width: var(--iron-icon-width, 24px);height: var(--iron-icon-height, 24px);}</style>
@@ -662,7 +662,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="custom-image" assetpath="elements/misc/">
     <template>
         <style>:host {display: block;}</style>
-        <img src="{{src}}" alt="" id="image" class="responsive-img">
+        
+        
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+              <div class="container">
+                <br><br>
+                <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+                <div class="row center">
+                  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+                <div class="row center">
+                  <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+                </div>
+                <br><br>
+
+              </div>
+            </div>
+            <div class="parallax"><img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 326px, 0px);"></div>
+          </div>
     </template>
     </dom-module><dom-module id="shared-styles" assetpath="styles/"><template><style>a { color: var(--dark-primary-color); }</style></template></dom-module><dom-module id="my-sidebar" assetpath="elements/">
 
@@ -718,12 +736,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <paper-icon-button icon="menu" paper-drawer-toggle=""></paper-icon-button>
 
                     </paper-toolbar>
-                    <iron-pages selected="{{route}}" attr-for-selected="data-menu" class="center ironpage">
+                    <iron-pages selected="{{route}}" attr-for-selected="data-menu">
                         <div data-menu="todo" class="container">
                             <todo-data todos="{{todos}}"></todo-data>
                             <todo-view todos="{{todos}}"></todo-view>
                         </div>
-                        <div data-menu="github" class="container">
+                        <div data-menu="github">
                             <github-data repos="{{repos}}" profile="{{profile}}"></github-data>
                             <github-view repos="{{repos}}"></github-view>
                         </div>
@@ -738,19 +756,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
     </dom-module><dom-module id="home-view" assetpath="elements/home/">
     <template>
-        <style>:host {display: block;}paper-material {background: var(--primary-background-color);color: var(--primary-text-color);}.space {padding: 10px;}.header {color: var(--accent-color);}</style>
+        <style>:host {display: block;}paper-material {background: var(--primary-background-color);color: var(--primary-text-color);}.space {padding: 10px;}.light {text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}.header {color: var(--accent-color);}.over-image {position: absolute;left: 185px;/* bottom: 55px; */top: 350px;}</style>
             
-            <custom-image src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg"></custom-image>
-            <div class="container valign-wrapper">
-                <div class="section no-pad-bot">
-                        <div class="row center">
-                            <a href="https://twitter.com/_rycastaneda" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @_rycastaneda</a>
-                                <h3 class="header light">About me</h3>
-                            <h5 class="col s12 light">A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.</h5>
-                        </div>
+
+            <div>
+                <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" alt="" id="image" class="responsive-img">
+                <div class="over-image center">
+                    <div class="container  center">
+                        <a href="https://twitter.com/_rycastaneda" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @_rycastaneda</a>
+                            <h3 class="header light">About me</h3>
+                        <h5 class="col s12 light">A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.</h5>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+
+
+            <div class="container row">
                 <div class="col s12">
                     <div class="row">
                         <skills-list skills="{{skills}}"></skills-list>
@@ -830,11 +851,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
     </dom-module><dom-module id="github-view" assetpath="elements/github/">
     <template>
-        <style>:host {display: block;}</style>
+        <style>:host {display: block;}.demo div{background-color: white;padding: 12px;margin: 4px;}</style>
 
-        <div class="row">
-            GitHub Repo count:
-            <span>{{repos.length}}</span>
+        <div class="container">
             <github-list repos="{{repos}}"></github-list>
         </div>
     </template>

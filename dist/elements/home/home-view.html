@@ -12,28 +12,42 @@
                 padding: 10px;
             }
 
+            .light {
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            }
             .header {
                 color: var(--accent-color);
             }
+            .over-image {
+                position: absolute;
+                left: 185px;
+                /* bottom: 55px; */
+                top: 350px;
+            }
+
+
 
         </style>
-            <!-- <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" class="responsive-img" alt=""> -->
-            <custom-image src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg"></custom-image>
-            <div class="container valign-wrapper">
-                <div class="section no-pad-bot">
-                        <div class="row center">
-                            <a href="https://twitter.com/_rycastaneda" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @_rycastaneda</a>
-                                <script>
-                                /* jshint ignore:start */
-                                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                                /* jshint ignore:start */
-                                </script>
-                            <h3 class="header light">About me</h3>
-                            <h5 class="col s12 light">A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.</h5>
-                        </div>
+            <!-- <custom-image src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg"></custom-image> -->
+
+            <div>
+                <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" alt="" id="image" class="responsive-img">
+                <div class="over-image center">
+                    <div class="container  center">
+                        <a href="https://twitter.com/_rycastaneda" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @_rycastaneda</a>
+                            <script>
+                            /* jshint ignore:start */
+                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                            /* jshint ignore:start */
+                            </script>
+                        <h3 class="header light">About me</h3>
+                        <h5 class="col s12 light">A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.</h5>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+
+
+            <div class="container row">
                 <div class="col s12">
                     <div class="row">
                         <skills-list skills="{{skills}}"></skills-list>
@@ -56,7 +70,7 @@
                             },
                             {
                                 skill: 'Polymer',
-                                logo : 'http://mobilemancer.com/wp-content/uploads/2015/01/Polymer-logo-featured.png',
+                                logo : 'https://cdn.evbuc.com/images/9040495/22926868472/1/logo.png',
                                 rating: 6
                             },
                             {

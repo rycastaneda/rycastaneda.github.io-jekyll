@@ -15672,7 +15672,7 @@ rating: 9
 },
 {
 skill: 'Polymer',
-logo: 'http://mobilemancer.com/wp-content/uploads/2015/01/Polymer-logo-featured.png',
+logo: 'https://cdn.evbuc.com/images/9040495/22926868472/1/logo.png',
 rating: 6
 },
 {

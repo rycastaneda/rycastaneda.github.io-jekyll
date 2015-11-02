@@ -4,11 +4,14 @@
             :host {
                 display: block;
             }
+            .demo div{
+                background-color: white;
+                padding: 12px;
+                margin: 4px;
+            }
         </style>
 
-        <div class="row">
-            GitHub Repo count:
-            <span>{{repos.length}}</span>
+        <div class="container">
             <github-list repos="{{repos}}"></github-list>
         </div>
     </template>
@@ -16,5 +19,5 @@
         Polymer({
             is: 'github-view',
         });
-    </script>
+</script>
 </dom-module>

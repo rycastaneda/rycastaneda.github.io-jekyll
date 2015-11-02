@@ -48,14 +48,23 @@
                 'neon-animation-finish': '_onNeonAnimationFinish'
             },
             toggle: function () {
+                console.log("   togle",     this.opened);
                 this.opened = !this.opened;
-                this.$.image.style.display= this.opened ? 'inline-block' : 'none';
+                if (this.opened) {
+                    this.$.image.style.display = 'inline-block';
+                }
                 this.playAnimation(this.opened ? 'entry' : 'exit');
             },
             ready: function () {
-                this.playAnimation('entry');
+                this.playAnimation('entry', this.test, this.test2);
             },
-            _onNeonAnimationFinish: function() {
+            test: function() {
+                console.log("   entry cb");
+            },
+            _onNeonAnimationFinish: function () {
+                if (!this.opened) {
+                    this.$.image.style.display = 'none';
+                }
             }
         });
     </script>

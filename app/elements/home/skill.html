@@ -4,12 +4,14 @@
             :host {
                 display: block;
             }
+            .fill {
+                background-color: var(--primary-background-color);
+            }
         </style>
-        <div class="col s4">
-            <iron-image src="{{skill.logo}}" class="responsive-img" preload sizing="cover" style="width:140px; height:140px;"></iron-image>
-            <p>
-                <h5>{{skill.skill}}</h5>
-            </p>
+        <div class="col s2 center">
+            <div class="circle fill ">
+                <iron-image src="{{skill.logo}}" class="responsive-img" preload sizing="cover" style="width:140px; height:140px;"></iron-image>
+            </div>
         </div>
     </template>
     <script>

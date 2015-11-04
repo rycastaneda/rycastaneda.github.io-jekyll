@@ -28,23 +28,37 @@
                         <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
 
                     </paper-toolbar>
-                    <iron-pages selected="{{route}}" attr-for-selected="data-menu">
-                        <div data-menu="todo" class="container">
-                            <todo-data todos="{{todos}}"></todo-data>
-                            <todo-view todos="{{todos}}"></todo-view>
-                        </div>
-                        <div data-menu="github">
-                            <github-data repos="{{repos}}" profile="{{profile}}"></github-data>
-                            <github-view repos="{{repos}}"></github-view>
-                        </div>
-                        <div data-menu="home">
-                            <home-view profile="{{profile}}">
+                    <neon-animated-pages id="pages" class="flex" selected="{{route}}" attr-for-selected="data-menu" entry-animation="slide-from-right-animation" exit-animation="slide-left-animation" on-iron-select="selectSomething">
+                        <neon-animatable data-menu="todo">
+                            <div class="container">
+                                <todo-data todos="{{todos}}"></todo-data>
+                                <todo-view todos="{{todos}}"></todo-view>
+                            </div>
+                        </neon-animatable>
+                        <neon-animatable data-menu="github">
+                            <div>
+                                <github-data repos="{{repos}}" profile="{{profile}}"></github-data>
+                                <github-view repos="{{repos}}"></github-view>
+                            </div>
+                        </neon-animatable>
+                        <neon-animatable data-menu="home">
+                            <home-view profile="{{profile}}" route="{{route}}" id="home" on-home-selected="ready">
                             </home-view>
+                        </neon-animatable>
+                        <neon-animatable data-menu="animations">
+                            <animations-view></animations-view>
+                        </neon-animatable>
+                    </neon-animated-pages>
+ <!--                    <iron-pages selected="{{route}}" attr-for-selected="data-menu">
+
+
+                        <div data-menu="home">
+
                         </div>
                         <div data-menu="animations" class="container">
-                            <animations-view></animations-view>
+
                         </div>
-                    </iron-pages>
+                    </iron-pages> -->
                 </paper-header-panel>
             </paper-drawer-panel>
         </template>
@@ -52,6 +66,16 @@
     <script>
         Polymer({
             is: 'polymer-practice',
+            listeners: {
+                'iron-select' : 'selectSomething'
+            },
+            selectSomething: function (e, detail) {
+                console.log("iron select", e, detail);
+                if (detail.item.attributes['data-menu'].value === 'home') {
+                    console.log("this.$.home", this.$.home);
+                    this.fire('home-selected', {});
+                }
+            },
             ready: function () {
                 this.customStyle['--paper-drawer-panel-main-container'] = '#455A64';
                 this.updateStyles();

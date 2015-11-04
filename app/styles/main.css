@@ -1,7 +1,7 @@
 #main {
     background-color: #455A64;
     color: #CFD8DC;
-    overflow: auto;
+    overflow-x: hidden;
 }
 
 iron-selector.paper-drawer-panel > #drawer.paper-drawer-panel {

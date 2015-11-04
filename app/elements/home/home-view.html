@@ -21,7 +21,7 @@
             }
         </style>
             <div class="center">
-                <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" class="responsive-img"></img>
+                <img id="image" src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" class="responsive-img"></img>
             </div>
 
             <div class="container center">
@@ -29,7 +29,7 @@
                     <script>
                     /* jshint ignore:start */
                     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                    /* jshint ignore:start */
+                    /* jshint ignore:end */
                     </script>
                 <h3 class="header light">About me</h3>
                 <h5 class="col s12 light">A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.</h5>
@@ -51,16 +51,22 @@
             ready: function () {
                 this.playAnimation('entry');
             },
+            routeChanged: function () {
+                if (this.route === 'home') {
+                    this.playAnimation('entry');
+                }
+            },
             properties: {
+                route: {
+                    observer: 'routeChanged'
+                },
                 animationConfig: {
                     value: function() {
                         return {
                             'entry': {
                                 name: 'fade-in-animation',
                                 node: this.$.image,
-                                timing: {
-                                    delay: 700
-                                }
+                                timing: {delay: 700}
                             },
                             'exit': {
                                 name: 'fade-out-animation',

@@ -1,0 +1,24 @@
+<dom-module id="user-data">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <iron-ajax url="/scripts/data.json" handle-as="json" on-response="handleProfileResponse" auto></iron-ajax>
+    </template>
+    <script>
+    Polymer({
+        is: 'user-data',
+        properties: {
+            profile: {
+                type: Object,
+                notify: true,
+            }
+        },
+        handleProfileResponse: function (data) {
+            this.profile = data.detail.response;
+        }
+    });
+    </script>
+</dom-module>

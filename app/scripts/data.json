@@ -1,0 +1,60 @@
+{
+    "name": "Ryan Castañeda",
+    "location": "Manila, Philippines",
+    "email": "castaneda.ry@gmail.com",
+    "facebook": "https://www.facebook.com/esprekitetat",
+    "github": "https://www.github.com/rycastaneda",
+    "linkedin": "https://ph.linkedin.com/in/rycastaneda",
+    "instagram": "https://www.instagram.com/flameofryca",
+    "twitter": "https://www.twitter.com/_rycastaneda",
+    "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAVnAAAAJDM5MGRkYTI2LTA1NmEtNDI4YS1hMzlmLWY5YTkzNGNlMzE4ZQ.jpg",
+    "intro": "A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.",
+    "skills": [{
+        "skill": "Angular JS",
+        "rating": 9
+    },
+    {
+        "skill": "Polymer",
+        "rating": 6
+    },
+    {
+        "skill": "React JS",
+        "rating": 5
+    },
+    {
+        "skill": "Native JavaScript",
+        "rating": 7
+    },
+    {
+        "skill": "CSS3",
+        "rating": 6
+    },
+    {
+        "skill": "NodeJS",
+        "rating": 6
+    },
+    {
+        "skill": "PHP Laravel",
+        "rating": 8
+    },
+    {
+        "skill": "MySQL",
+        "rating": 7
+    },
+    {
+        "skill": "MongoDB",
+        "rating": 7
+    },
+    {
+        "skill": "GitHub",
+        "rating": 7
+    },
+    {
+        "skill": "Bootsrap CSS",
+        "rating": 7
+    },
+    {
+        "skill": "Gulp",
+        "rating": 6
+    }]
+}

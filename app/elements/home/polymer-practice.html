@@ -67,12 +67,10 @@
         Polymer({
             is: 'polymer-practice',
             listeners: {
-                'iron-select' : 'selectSomething'
+                'iron-select': 'selectSomething'
             },
             selectSomething: function (e, detail) {
-                console.log("iron select", e, detail);
                 if (detail.item.attributes['data-menu'].value === 'home') {
-                    console.log("this.$.home", this.$.home);
                     this.fire('home-selected', {});
                 }
             },

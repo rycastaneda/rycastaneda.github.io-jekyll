@@ -19,28 +19,45 @@
             .stack {
                 margin: 15px auto;
             }
-        </style>
-            <div class="center">
-                <img id="image" src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/11885672_10153602229194749_69265439601683240_o.jpg" class="responsive-img"></img>
-            </div>
+            iron-image {
+                width: 100%;
+                --iron-image-width: 100%;
+            }
+            img {
+                display: block;
+                transform: translate3d(-50%, 596px, 0px);
+            }
+            .parallax-container {
+                height: 800px;
+            }
+            h3 {
+                color: var(--light-primary-color);
+            }
 
+
+        </style>
+        <div class="parallax-container valign-wrapper" id="cont">
+            <div class="parallax" id="parallax">
+                <img src="/images/home-bg.jpg">
+            </div>
             <div class="container center">
-                <a href="https://twitter.com/_rycastaneda" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @_rycastaneda</a>
-                    <script>
-                    /* jshint ignore:start */
-                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                    /* jshint ignore:end */
-                    </script>
-                <h3 class="header light">About me</h3>
-                <h5 class="col s12 light">A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.</h5>
+                <iron-image src="{{profile.avatar}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+                <h3>{{profile.name}}</h3>
+                <paper-spinner active="{{showLoading}}"></paper-spinner>
             </div>
-            <div class="container row stack">
-                <div class="row">
-                    <div class="col s12">
-                        <skills-list skills="{{skills}}"></skills-list>
-                    </div>
-                </div>
+        </div>
+        <div class="section white">
+            <div class="row container">
+                <h2 class="header">Web Development</h2>
+                <p class="grey-text text-darken-3 lighten-3">{{profile.intro}}</p>
             </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="/images/sing.jpg"></div>
+        </div>
+        <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum perferendis totam eos. Iure vitae minus et, similique totam cum tempore culpa, dolores neque quibusdam sed iusto, temporibus distinctio modi. Voluptate.
+        </p>
     </template>
     <script>
         Polymer({
@@ -48,8 +65,17 @@
             behaviors: [
                 Polymer.NeonAnimationRunnerBehavior
             ],
+            listeners: {
+                'cont.scroll': 'scrolled'
+            },
+            scrolled: function (e) {
+                console.log("e", e);
+            },
             ready: function () {
                 this.playAnimation('entry');
+                this.addEventListener('scroll', function (e) {
+                    console.log("e", e);
+                });
             },
             routeChanged: function () {
                 if (this.route === 'home') {
@@ -59,6 +85,10 @@
             properties: {
                 route: {
                     observer: 'routeChanged'
+                },
+                showLoading: {
+                    type: Boolean,
+                    computed: 'getUser(profile)'
                 },
                 animationConfig: {
                     value: function() {
@@ -74,74 +104,11 @@
                             }
                         };
                     }
-                },
-                skills: {
-                    type: Array,
-                    value: function () {
-                        return [
-                            {
-                                skill: 'Angular JS',
-                                logo : 'http://res.cloudinary.com/buddahbelly/image/upload/v1423072364/brilliantbritz/angular-js.png',
-                                rating: 9,
-                            },
-                            {
-                                skill: 'Polymer',
-                                logo : 'https://cdn.evbuc.com/images/9040495/22926868472/1/logo.png',
-                                rating: 6
-                            },
-                            {
-                                skill: 'React JS',
-                                logo : 'https://cdn.auth0.com/blog/react-js/react.png',
-                                rating: 5
-                            },
-                            {
-                                skill: 'Native JavaScript',
-                                logo: 'http://inspiredtoeducate.net/inspiredtoeducate/wp-content/uploads/2013/12/js-logo.png',
-                                rating: 7
-                            },
-                            {
-                                skill: 'CSS3',
-                                logo: 'http://grahamtylerwong.com/images/Icons/css3logo_large.png',
-                                rating: 6
-                            },
-                            {
-                                skill: 'NodeJS',
-                                logo: 'http://www.fullstack360.com/site/img/node.png',
-                                rating: 6
-                            },
-                            {
-                                skill: 'PHP Laravel',
-                                logo: 'http://futureprofilez.com/wp-content/uploads/2014/07/laravel.png',
-                                rating: 8
-                            },
-                            {
-                                skill: 'MySQL',
-                                logo: 'http://www.instantdb.co.uk/mysql.png',
-                                rating: 7
-                            },
-                            {
-                                skill: 'MongoDB',
-                                logo: 'https://blog.rootshell.be/wp-content/uploads/2015/03/mongodb-gui-tools.png',
-                                rating: 7
-                            },
-                            {
-                                skill: 'GitHub',
-                                logo: 'https://assets-cdn.github.com/images/modules/logos_page/Octocat.png',
-                                rating: 7
-                            },
-                            {
-                                skill: 'Bootsrap CSS',
-                                logo: 'http://vps-4562-5219.cloud.tilaa.com/wp-content/uploads/2014/11/bootstrap-logo.png',
-                                rating: 7
-                            },
-                            {
-                                skill: 'Gulp',
-                                logo: 'https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png',
-                                rating: 6
-                            },
-                        ];
-                    }
                 }
+            },
+            getUser: function (profile) {
+                console.log("profile", profile);
+                return !profile;
             }
         });
     </script>

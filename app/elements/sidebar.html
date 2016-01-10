@@ -19,26 +19,6 @@
                 margin-bottom: 5px;
             }
         </style>
-
-        <div class="center info" hidden="{{!loading}}">
-            <paper-spinner id="spinner" active="loading"></paper-spinner>
-        </div>
-        <div class="center info">
-            <a  class="light" href="{{profile.blog}}">
-                <iron-image src="{{profile.avatar_url}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
-            </a>
-            <div hidden="{{loading}}">
-                <h5>{{profile.name}}</h5>
-                <h6><i class="fa fa-envelope">&nbsp;</i>{{profile.email}}</h6>
-                <h6><i class="fa fa-map-marker">&nbsp;</i>{{profile.location}}</h6>
-                <div class="sidebar-links">
-                    <a href="http://www.twitter.com/_rycastaneda"><i class="fa fa-lg fa-twitter"></i></a>
-                    <a href="http://www.github.com/rycastaneda"><i class="fa fa-lg fa-github"></i></a>
-                    <a href="http://www.facebook.com/esprekitetat"><i class="fa fa-lg fa-facebook"></i></a>
-                    <a href="http://ph.linkedin.com/in/rycastaneda"><i class="fa fa-lg fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
         <paper-toolbar>
             <paper-menu id="menu" selected="{{route}}" attr-for-selected="data-menu">
                 <paper-item class="menu-item" role="menuitem" on-tap="onSelect" data-menu="home">
@@ -55,7 +35,6 @@
                 </paper-item>
             </paper-menu>
         </paper-toolbar>
-        <style></style>
     </template>
     <script>
         Polymer({
@@ -70,11 +49,11 @@
                     value: true
                 }
             },
-            _loading : function () {
+            _loading: function () {
                 this.loading = false;
                 this.$$('#spinner').active = false;
             },
-            onSelect: function(e){
+            onSelect: function (e) {
                 var link = e.currentTarget.getAttribute('data-menu');
                 page('/' + link);
             }

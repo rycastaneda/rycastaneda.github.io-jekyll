@@ -17,17 +17,16 @@
     <script>
         Polymer({
             is: 'todo-view',
-            properties: {
-            },
-            todoListener : function (data) {
+            properties: {},
+            todoListener: function (data) {
                 console.log('todos change listener', data);
             },
-            selectedTodo : function (event) {
+            selectedTodo: function (event) {
                 this.todos.current_todo = event.detail.index;
                 this.currentTodo = this.todos.list[this.todos.current_todo];
                 this.set('todos.current_todo', event.detail.index);
             },
-            clearAll : function () {
+            clearAll: function () {
                 this.set('todos.list', []);
                 this.currentTodo = {};
             },
@@ -35,7 +34,10 @@
                 if (!this.$.todoInput.value) {
                     return;
                 }
-                this.push('todos.list', {label: this.$.todoInput.value, isComplete: false});
+                this.push('todos.list', {
+                    label: this.$.todoInput.value,
+                    isComplete: false
+                });
                 this.$.todoInput.value = '';
                 this.filterSelection = 'all';
             },
@@ -48,11 +50,8 @@
             },
             _checkAdd: function (e) {
                 if (e.keyCode === 13) {
-                   this.addTodo();
+                    this.addTodo();
                 }
-            },
-            deleteTodo: function () {
-
             }
         });
     </script>

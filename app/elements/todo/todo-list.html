@@ -26,24 +26,24 @@
                     notify: true
                 }
             },
-            filterState : function (filterBy) {
+            filterState: function (filterBy) {
                 if (filterBy !== 'all') {
-                    return function(item) {
+                    return function (item) {
                         return item.isComplete === (filterBy === 'done');
                     };
                 }
 
                 return function () {
-                  return true;
+                    return true;
                 };
             },
             _computeTaskDone: function () {
-                return this.todos.filter(function(e){
+                return this.todos.filter(function (e) {
                     return e.isComplete;
                 }).length;
             },
             _computeTaskLeft: function () {
-                return this.todos.filter(function(e){
+                return this.todos.filter(function (e) {
                     return !e.isComplete;
                 }).length;
             }

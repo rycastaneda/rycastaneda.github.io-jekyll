@@ -20,44 +20,62 @@
                 margin: 15px auto;
             }
             iron-image {
-                width: 100%;
                 --iron-image-width: 100%;
             }
             img {
                 display: block;
                 transform: translate3d(-50%, 596px, 0px);
             }
-            .parallax-container {
-                height: 800px;
+            .home {
+                height: 1000px;
             }
+
             h3 {
                 color: var(--light-primary-color);
             }
 
+            #para  iron-image {
+                width: 100%;
+                height: 800px;
+                opacity: 0.4;
+            }
 
+            #about {
+                opacity: 0;
+            }
+
+            paper-progress {
+                --paper-progress-transition-duration: 0.08s;
+                --paper-progress-transition-timing-function: ease;
+                --paper-progress-transition-transition-delay: 1s;
+            }
         </style>
-        <div class="parallax-container valign-wrapper" id="cont">
+        <div class="parallax-container home valign-wrapper" id="cont">
             <div class="parallax" id="parallax">
                 <img src="/images/home-bg.jpg">
             </div>
             <div class="container center">
-                <iron-image src="{{profile.avatar}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
+                <iron-image src="{{profile.avatar_nocap}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
                 <h3>{{profile.name}}</h3>
+                <paper-progress value="7" max="10" class="blue"></paper-progress>
                 <paper-spinner active="{{showLoading}}"></paper-spinner>
             </div>
         </div>
-        <div class="section white">
+        <div class="section white" id="about">
             <div class="row container">
                 <h2 class="header">Web Development</h2>
                 <p class="grey-text text-darken-3 lighten-3">{{profile.intro}}</p>
             </div>
         </div>
-        <div class="parallax-container">
-            <div class="parallax"><img src="/images/sing.jpg"></div>
+        <my-skill profile="{{profile}}" id="skill"></my-skill>
+        <div id="para">
+            <iron-image src="/images/highres.jpg" preload sizing="cover"></iron-image>
+            <!-- <img src="/images/highres.jpg" alt=""> -->
         </div>
         <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum perferendis totam eos. Iure vitae minus et, similique totam cum tempore culpa, dolores neque quibusdam sed iusto, temporibus distinctio modi. Voluptate.
         </p>
+        <iron-signals on-iron-signal-scroll-btm="scrolled"></iron-signals>
     </template>
     <script>
         Polymer({
@@ -66,20 +84,33 @@
                 Polymer.NeonAnimationRunnerBehavior
             ],
             listeners: {
-                'cont.scroll': 'scrolled'
+                'scroll-bottom': 'scrolled',
+                'neon-animation-finish': '_onNeonAnimationFinish'
             },
             scrolled: function (e) {
-                console.log("e", e);
+                if (e.detail.scrollTop > 600) {
+                    this.$.about.style.opacity = 1;
+                    if (!this.showAbout) {
+                        this.showAbout = true;
+                        this.playAnimation('entry');
+                    }
+                }
+                if (e.detail.scrollTop === 700) {
+                    this.$.skill.start(e.detail.scrollTop);
+                }
+
+                if (e.detail.scrollTop >= 800 && e.detail.scrollTop <= 1900) {
+                    this.$.skill.playNext(e.detail.scrollTop);
+                }
             },
-            ready: function () {
-                this.playAnimation('entry');
-                this.addEventListener('scroll', function (e) {
-                    console.log("e", e);
-                });
+            _onNeonAnimationFinish: function (e) {
+                console.log(e);
+                this.$.about.style.opacity = 1;
             },
+            ready: function () {},
             routeChanged: function () {
                 if (this.route === 'home') {
-                    this.playAnimation('entry');
+                    // this.playAnimation('entry');
                 }
             },
             properties: {
@@ -94,8 +125,8 @@
                     value: function() {
                         return {
                             'entry': {
-                                name: 'fade-in-animation',
-                                node: this.$.image,
+                                name: 'slide-from-left-animation',
+                                node: this.$.about,
                                 timing: {delay: 700}
                             },
                             'exit': {
@@ -104,10 +135,14 @@
                             }
                         };
                     }
+                },
+                showAbout: {
+                    type: Boolean,
+                    value: false
                 }
             },
             getUser: function (profile) {
-                console.log("profile", profile);
+                console.log(profile);
                 return !profile;
             }
         });

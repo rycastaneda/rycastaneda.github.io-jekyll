@@ -7,16 +7,107 @@
             .fill {
                 background-color: var(--primary-background-color);
             }
+
+            paper-progress {
+                  display: block;
+                  width: 100%;
+                  margin: 20px 0;
+                }
+                --paper-progress-transition-duration: 0.08s;
+                --paper-progress-transition-timing-function: ease;
+                --paper-progress-transition-transition-delay: 0s;
+                paper-progress.blue {
+                  --paper-progress-active-color: var(--paper-light-blue-500);
+                  --paper-progress-secondary-color: var(--paper-light-blue-100);
+                }
+                paper-progress.red {
+                  --paper-progress-active-color: var(--paper-red-500);
+                  --paper-progress-secondary-color: var(--paper-red-100);
+                }
+                paper-progress.orange {
+                  --paper-progress-active-color: var(--paper-orange-500);
+                  --paper-progress-secondary-color: var(--paper-orange-100);
+                }
+                paper-progress.green {
+                  --paper-progress-active-color: var(--paper-light-green-500);
+                  --paper-progress-secondary-color: var(--paper-light-green-100);
+            }
+            .skill {
+                opacity: 0;
+            }
         </style>
-        <div class="col s2 center">
-            <div class="circle fill ">
-                <img src="{{skill.logo}}" class="responsive-img" style="width:140px; height:140px;"></img>
+        <div class="section white">
+            <div class="row container">
+                <template is="dom-repeat" items="{{profile.skills}}" as="skill">
+                    <div id="skill-{{index}}" class="skill">
+                        <span>{{skill.skill}}</span>
+                        <paper-progress value="{{skill.rating}}" max="10" class="blue"></paper-progress><br>
+                    </div>
+                </template>
             </div>
         </div>
     </template>
     <script>
         Polymer({
-            is: 'my-skill'
+            is: 'my-skill',
+            behaviors: [
+                Polymer.NeonAnimationRunnerBehavior
+            ],
+            listeners: {
+                'neon-animation-finish': '_onNeonAnimationFinish'
+            },
+            properties: {
+                profile: {
+                    observer: 'profileReady'
+                },
+                started: false,
+                animationConfig: {
+                    value: function() {
+                        return {};
+                    }
+                }
+            },
+            profileReady: function () {
+                this.ratings = this.profile.skills.map(function (s) {
+                    return s.rating;
+                });
+
+                for (var i = 0; i < this.profile.skills.length; i++) {
+                    this.profile.skills[i].rating = 0;
+                }
+            },
+            _onNeonAnimationFinish: function (e) {
+                console.log(e);
+                document.querySelector('#skill-' + e.detail).style.opacity = 1;
+                this.set('profile.skills.' + e.detail + '.rating', this.ratings[e.detail]);
+            },
+            playNext: function (scroll) {
+                var indexToPlay = 0;
+                indexToPlay = scroll / 100 - 8;
+                if (indexToPlay < this.profile.skills.length) {
+                    for (var i = 0; i < indexToPlay; i++) {
+                        if (!this.profile.skills[i].rating) {
+                            this.playAnimation('skill-' + i, i);
+                        }
+                    }
+                }
+                if (!this.profile.skills[indexToPlay].rating) {
+                    this.playAnimation('skill-' + indexToPlay, indexToPlay);
+                }
+            },
+            start: function () {
+                if (!this.started) {
+                    for (var i = 0; i < this.profile.skills.length; i++) {
+                        this.animationConfig['skill-' + i] = {
+                            name: 'fade-in-animation',
+                            node: document.querySelector('#skill-' + i),
+                            // timing: {delay: 1000}
+                        };
+                    }
+                }
+
+                this.started = true;
+            }
         });
     </script>
 </dom-module>

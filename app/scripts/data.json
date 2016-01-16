@@ -7,8 +7,9 @@
     "linkedin": "https://ph.linkedin.com/in/rycastaneda",
     "instagram": "https://www.instagram.com/flameofryca",
     "twitter": "https://www.twitter.com/_rycastaneda",
+    "avatar_nocap": "https://avatars2.githubusercontent.com/u/4694510?v=3&s=460",
     "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAVnAAAAJDM5MGRkYTI2LTA1NmEtNDI4YS1hMzlmLWY5YTkzNGNlMzE4ZQ.jpg",
-    "intro": "A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, loves Object Oriented Programming but also has boners for Procedural Languages. Has a thing for workflow and build enhancements.",
+    "intro": "A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, has OCD in indentations, commas and nested code, loves workflow and build enhancements.",
     "skills": [{
         "skill": "Angular JS",
         "rating": 9

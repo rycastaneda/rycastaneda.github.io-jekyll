@@ -39,15 +39,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         $('.parallax').parallax();
         // document.getElementById('parallax').parallax();
         document.getElementById('mainContainer').addEventListener('scroll', function (e) {
-            console.log("   e",     e);
+            app.fire('iron-signal', {name: 'scroll-btm', data: e.target});
             if (e.target.scrollTop + e.target.offsetHeight >= e.target.scrollHeight * 0.95) {
-                console.log(" btm  ", e);
                 app.$.menubtn.customStyle['--paper-icon-button-ink-color'] = '#8BC34A';
-                app.$.menubtn.style['color'] = '#455A64';
+                app.$.menubtn.style.color = '#455A64';
                 app.$.menubtn.updateStyles();
+                app.fire('iron-signal', {name: 'scroll-btm', data: null});
             } else if (e.target.scrollTop + e.target.offsetHeight <= e.target.scrollHeight * 0.95) {
                 app.$.menubtn.customStyle['--paper-icon-button-ink-color'] = '#455A64';
-                app.$.menubtn.style['color'] = '#CFD8DC';
+                app.$.menubtn.style.color = '#CFD8DC';
                 app.$.menubtn.updateStyles();
             }
         });
@@ -87,7 +87,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // Scroll page to top and expand header
     app.scrollPageToTop = function() {
-        console.log("app.$", app.$);
         app.$.headerPanelMain.scrollToTop(true);
     };
 

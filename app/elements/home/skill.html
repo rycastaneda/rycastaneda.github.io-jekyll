@@ -3,49 +3,39 @@
         <style>
             :host {
                 display: block;
-            }
-            .fill {
                 background-color: var(--primary-background-color);
             }
 
             paper-progress {
-                  display: block;
-                  width: 100%;
-                  margin: 20px 0;
-                }
-                --paper-progress-transition-duration: 0.08s;
-                --paper-progress-transition-timing-function: ease;
-                --paper-progress-transition-transition-delay: 0s;
-                paper-progress.blue {
-                  --paper-progress-active-color: var(--paper-light-blue-500);
-                  --paper-progress-secondary-color: var(--paper-light-blue-100);
-                }
-                paper-progress.red {
-                  --paper-progress-active-color: var(--paper-red-500);
-                  --paper-progress-secondary-color: var(--paper-red-100);
-                }
-                paper-progress.orange {
-                  --paper-progress-active-color: var(--paper-orange-500);
-                  --paper-progress-secondary-color: var(--paper-orange-100);
-                }
-                paper-progress.green {
-                  --paper-progress-active-color: var(--paper-light-green-500);
-                  --paper-progress-secondary-color: var(--paper-light-green-100);
+                width: 100%;
             }
+
             .skill {
                 opacity: 0;
+                margin: 10px 0;
+            }
+
+            .rating {
+                color: var(--secondary-text-color);
+                font-size: 35px;
             }
         </style>
-        <div class="section white">
+        <div class="section">
             <div class="row container">
                 <template is="dom-repeat" items="{{profile.skills}}" as="skill">
-                    <div id="skill-{{index}}" class="skill">
-                        <span>{{skill.skill}}</span>
-                        <paper-progress value="{{skill.rating}}" max="10" class="blue"></paper-progress><br>
-                    </div>
+                    <paper-card class="col s12 skill" id="skill-{{index}}">
+                        <div class="header style-scope paper-card">
+                            <div class="title-text left style-scope paper-card">Angular JS</div>
+                            <div class="title-text right style-scope paper-card"><span class="rating">{{skill.rating}}</span> / 10</div>
+                        </div>
+                        <div class="card-content">
+                            <paper-progress id="progress-{{index}}" value="{{skill.rating}}" max="10" class=""></paper-progress><br>
+                        </div>
+                    </paper-card>
                 </template>
             </div>
         </div>
+        <iron-signals on-iron-signal-scroll="scrolled"></iron-signals>
     </template>
     <script>
         Polymer({
@@ -54,6 +44,7 @@
                 Polymer.NeonAnimationRunnerBehavior
             ],
             listeners: {
+                'scroll': 'scrolled',
                 'neon-animation-finish': '_onNeonAnimationFinish'
             },
             properties: {
@@ -61,10 +52,27 @@
                     observer: 'profileReady'
                 },
                 started: false,
+                allDisplayed: false,
                 animationConfig: {
                     value: function() {
                         return {};
                     }
+                }
+            },
+            scrolled: function (e) {
+                if (this.allDisplayed) {
+                    return;
+                }
+
+                if (e.detail.scrollTop > 250) {
+                    if (!this.started) {
+                        this.start(e.detail.scrollTop);
+                    }
+                    this.started = true;
+                }
+
+                if (e.detail.scrollTop >= 800) {
+                    this.playNext(e.detail.scrollTop);
                 }
             },
             profileReady: function () {
@@ -78,35 +86,47 @@
             },
             _onNeonAnimationFinish: function (e) {
                 console.log(e);
-                document.querySelector('#skill-' + e.detail).style.opacity = 1;
-                this.set('profile.skills.' + e.detail + '.rating', this.ratings[e.detail]);
+                document.querySelector('#skill-' + e.detail).opacity = 1;
+                this.nextProgress(e.detail);
+                // prog.value = this.profile.skills[e.detail].rating;
+            },
+            nextProgress: function (idx) {
+                if (this.profile.skills[idx].rating < this.ratings[idx]) {
+                    this.set('profile.skills.' + idx + '.rating', this.profile.skills[idx].rating += 1);
+                }
+                requestAnimationFrame(this.nextProgress.bind(this, idx));
             },
             playNext: function (scroll) {
-                var indexToPlay = 0;
-                indexToPlay = scroll / 100 - 8;
-                if (indexToPlay < this.profile.skills.length) {
-                    for (var i = 0; i < indexToPlay; i++) {
-                        if (!this.profile.skills[i].rating) {
-                            this.playAnimation('skill-' + i, i);
-                        }
-                    }
+                var indexToPlay = Math.floor(scroll / 100 - 8),
+                    i = 0,
+                    skillsToPlay;
+
+                if (indexToPlay > this.profile.skills.length) {
+                    skillsToPlay = this.profile.skills.length - 1;
+                    this.allDisplayed = true;
+                } else if (indexToPlay < this.profile.skills.length) {
+                    skillsToPlay = indexToPlay;
                 }
-                if (!this.profile.skills[indexToPlay].rating) {
-                    this.playAnimation('skill-' + indexToPlay, indexToPlay);
-                }
-            },
-            start: function () {
-                if (!this.started) {
-                    for (var i = 0; i < this.profile.skills.length; i++) {
-                        this.animationConfig['skill-' + i] = {
-                            name: 'fade-in-animation',
-                            node: document.querySelector('#skill-' + i),
-                            // timing: {delay: 1000}
-                        };
+
+                for (i = 0; i <= skillsToPlay; i++) {
+                    if (!this.profile.skills[i].rating) {
+                        this.playAnimation('skill-' + i, i);
                     }
                 }
 
-                this.started = true;
+                if (this.profile.skills[skillsToPlay] && !this.profile.skills[skillsToPlay].rating) {
+                    this.playAnimation('skill-' + skillsToPlay, skillsToPlay);
+                }
+
+            },
+            start: function () {
+                for (var i = 0; i < this.profile.skills.length; i++) {
+                    this.animationConfig['skill-' + i] = {
+                        name: 'fade-in-animation',
+                        node: document.querySelector('#skill-' + i),
+                        // timing: {delay: 1000}
+                    };
+                }
             }
         });
     </script>

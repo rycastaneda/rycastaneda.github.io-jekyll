@@ -1,0 +1,26 @@
+<dom-module id="my-portfolio">
+    <template>
+        <style>
+            :host {
+                display: block;
+                background: var(--dark-primary-color);
+            }
+            .contact{
+                margin-bottom: 0px;
+            }
+        </style>
+        <div class="row contact">
+            <div class="col s6">
+                <h3>Contact</h3>
+            </div>
+            <div class="col s6">
+                <iron-image src="{{profile.avatar}}" class="reponsive-img"></iron-image>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'my-portfolio'
+        });
+    </script>
+</dom-module>

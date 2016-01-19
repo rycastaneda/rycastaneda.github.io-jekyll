@@ -30,15 +30,15 @@
                 height: 1000px;
             }
 
-            h3 {
+            h3, h6 {
                 color: var(--light-primary-color);
             }
 
-            #para  iron-image {
+            /*#para  iron-image {
                 width: 100%;
                 height: 800px;
                 opacity: 0.4;
-            }
+            }*/
 
             #about {
                 opacity: 0;
@@ -49,7 +49,13 @@
                 --paper-progress-transition-timing-function: ease;
                 --paper-progress-transition-transition-delay: 1s;
             }
+
+            #about {
+                /*color: var(--light-primary-color);*/
+                background-color: var(--light-primary-color);
+            }
         </style>
+
         <div class="parallax-container home valign-wrapper" id="cont">
             <div class="parallax" id="parallax">
                 <img src="/images/home-bg.jpg">
@@ -57,25 +63,33 @@
             <div class="container center">
                 <iron-image src="{{profile.avatar_nocap}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
                 <h3>{{profile.name}}</h3>
-                <paper-progress value="7" max="10" class="blue"></paper-progress>
+                <h6>{{profile.location}}</h6>
                 <paper-spinner active="{{showLoading}}"></paper-spinner>
             </div>
         </div>
-        <div class="section white" id="about">
+
+        <div class="section" id="about">
             <div class="row container">
                 <h2 class="header">Web Development</h2>
-                <p class="grey-text text-darken-3 lighten-3">{{profile.intro}}</p>
+                <p>{{profile.intro}}</p>
             </div>
         </div>
-        <my-skill profile="{{profile}}" id="skill"></my-skill>
-        <div id="para">
-            <iron-image src="/images/highres.jpg" preload sizing="cover"></iron-image>
-            <!-- <img src="/images/highres.jpg" alt=""> -->
+
+        <my-portfolio profile="{{profile}}"></my-portfolio>
+
+        <my-skill profile="{{profile}}" id="skill" hidden="{{!showAbout}}"></my-skill>
+
+
+        <div class="row contact">
+            <div class="col s6">
+                <h3>Contact</h3>
+            </div>
+            <div class="col s6">
+                <iron-image src="{{profile.avatar}}" class="reponsive-img"></iron-image>
+            </div>
         </div>
-        <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum perferendis totam eos. Iure vitae minus et, similique totam cum tempore culpa, dolores neque quibusdam sed iusto, temporibus distinctio modi. Voluptate.
-        </p>
-        <iron-signals on-iron-signal-scroll-btm="scrolled"></iron-signals>
+
+        <iron-signals on-iron-signal-scroll="scrolled"></iron-signals>
     </template>
     <script>
         Polymer({
@@ -84,23 +98,16 @@
                 Polymer.NeonAnimationRunnerBehavior
             ],
             listeners: {
-                'scroll-bottom': 'scrolled',
+                'scroll': 'scrolled',
                 'neon-animation-finish': '_onNeonAnimationFinish'
             },
             scrolled: function (e) {
-                if (e.detail.scrollTop > 600) {
+                if (e.detail.scrollTop >= 250) {
                     this.$.about.style.opacity = 1;
                     if (!this.showAbout) {
                         this.showAbout = true;
                         this.playAnimation('entry');
                     }
-                }
-                if (e.detail.scrollTop === 700) {
-                    this.$.skill.start(e.detail.scrollTop);
-                }
-
-                if (e.detail.scrollTop >= 800 && e.detail.scrollTop <= 1900) {
-                    this.$.skill.playNext(e.detail.scrollTop);
                 }
             },
             _onNeonAnimationFinish: function (e) {
@@ -127,7 +134,6 @@
                             'entry': {
                                 name: 'slide-from-left-animation',
                                 node: this.$.about,
-                                timing: {delay: 700}
                             },
                             'exit': {
                                 name: 'fade-out-animation',
@@ -135,6 +141,10 @@
                             }
                         };
                     }
+                },
+                showContact: {
+                    type: Boolean,
+                    value: !false
                 },
                 showAbout: {
                     type: Boolean,

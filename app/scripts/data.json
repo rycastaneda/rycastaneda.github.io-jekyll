@@ -8,54 +8,66 @@
     "instagram": "https://www.instagram.com/flameofryca",
     "twitter": "https://www.twitter.com/_rycastaneda",
     "avatar_nocap": "https://avatars2.githubusercontent.com/u/4694510?v=3&s=460",
-    "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAVnAAAAJDM5MGRkYTI2LTA1NmEtNDI4YS1hMzlmLWY5YTkzNGNlMzE4ZQ.jpg",
-    "intro": "A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, has OCD in indentations, commas and nested code, loves workflow and build enhancements.",
+    "avatar": "https://scontent-hkg3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/12072677_10153708352719749_4161871368792279893_n.jpg?oh=747fb54d22ac103b53cbeeb288dd21e2&oe=5739E091",
+    "intro": "A ninja when it comes to text editors, good with arrays and objects, can bend the DOM at will, has OCD in indentations, commas and nested code.",
     "skills": [{
         "skill": "Angular JS",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 9
     },
     {
         "skill": "Polymer",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 6
     },
     {
         "skill": "React JS",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 5
     },
     {
         "skill": "Native JavaScript",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 7
     },
     {
         "skill": "CSS3",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 6
     },
     {
         "skill": "NodeJS",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 6
     },
     {
         "skill": "PHP Laravel",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 8
     },
     {
         "skill": "MySQL",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 7
     },
     {
         "skill": "MongoDB",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 7
     },
     {
         "skill": "GitHub",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 7
     },
     {
         "skill": "Bootsrap CSS",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 7
     },
     {
         "skill": "Gulp",
+        "image": "http://www.invokemedia.com/wp-content/uploads/2015/07/angular.png",
         "rating": 6
     }]
 }

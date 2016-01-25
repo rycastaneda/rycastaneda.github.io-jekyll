@@ -30,7 +30,7 @@
                 height: 1000px;
             }
 
-            h3, h6 {
+            h3, h5 {
                 color: var(--light-primary-color);
             }
 
@@ -42,6 +42,7 @@
 
             #about {
                 opacity: 0;
+                background-color: var(--light-primary-color);
             }
 
             paper-progress {
@@ -50,9 +51,30 @@
                 --paper-progress-transition-transition-delay: 1s;
             }
 
-            #about {
-                /*color: var(--light-primary-color);*/
+            #contact {
+                color: var(--primary-text-color);
                 background-color: var(--light-primary-color);
+                margin-bottom: 0px;
+            }
+
+            a > i {
+                margin-left: 5px;
+            }
+
+            .dark, .dark > a {
+                color: var(--primary-text-color);
+            }
+
+            .light, .light > a {
+                color: var(--light-primary-color);
+            }
+
+            .blur {
+                opacity: 0.4;
+            }
+
+            form {
+                margin-bottom: 20px;
             }
         </style>
 
@@ -63,7 +85,7 @@
             <div class="container center">
                 <iron-image src="{{profile.avatar_nocap}}" style="width:135px; height: 135px;" class="circle responsive-img" preload ></iron-image>
                 <h3>{{profile.name}}</h3>
-                <h6>{{profile.location}}</h6>
+                <h5>Web Developer</h5>
                 <paper-spinner active="{{showLoading}}"></paper-spinner>
             </div>
         </div>
@@ -80,15 +102,71 @@
         <my-skill profile="{{profile}}" id="skill" hidden="{{!showAbout}}"></my-skill>
 
 
-        <div class="row contact">
+        <div class="row contact" id="contact">
             <div class="col s6">
-                <h3>Contact</h3>
+                <iron-image src="{{profile.avatar}}"></iron-image>
             </div>
-            <div class="col s6">
-                <iron-image src="{{profile.avatar}}" class="reponsive-img"></iron-image>
-            </div>
-        </div>
+            <div class="col s6 center">
+                <h2>Contact</h2>
+                <form class="row" action="">
+                    <div class="input-field col s12">
+                          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                          <label for="first_name">Name</label>
+                        </div>
+                    <div class="input-field col s12">
+                      <textarea id="textarea1" class="materialize-textarea"></textarea>
+                      <label for="textarea1">Message</label>
+                    </div>
 
+                    <div class="input-field col s12">
+                        <button class="waves-effect waves-light btn">Submit</button>
+                    </div>
+                </form>
+                <p class="dark">
+                    Ryan Castañeda<br>
+                    <i class="fa fa-envelope">&nbsp;{{profile.email}}</i><br>
+                    <i class="fa fa-map-marker">&nbsp;{{profile.location}}</i><br>
+                    <a href="{{profile.github}}"><i class="fa fa-2x fa-github"></i></a>
+                    <a href="{{profile.facebook}}"><i class="fa fa-2x fa-facebook"></i></a>
+                    <a href="{{profile.linkedin}}"><i class="fa fa-2x fa-linkedin"></i></a>
+                    <a href="{{profile.twitter}}"><i class="fa fa-2x fa-twitter"></i></a>
+                    <a href="{{profile.instagram}}"><i class="fa fa-2x fa-instagram"></i></a>
+                </p>
+            </div>
+
+        </div>
+        <!-- <div class="parallax-container home valign-wrapper" id="cont">
+            <div class="parallax" id="parallax">
+                <img class="blur" src="{{profile.avatar}}">
+            </div>
+            <div class="container center dark">
+                <h2>Contact</h2>
+                <form class="row" action="">
+                    <div class="input-field col s12">
+                          <input id="first_name" type="text" class=" dark">
+                          <label for="first_name" class="dark">Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <textarea id="textarea1" class="materialize-textarea dark"></textarea>
+                      <label for="textarea1" class="dark">Message</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <button class="waves-effect waves-light btn">Submit</button>
+                    </div>
+                </form>
+                <p class="dark">
+                    Ryan Castañeda<br>
+                    <i class="fa fa-envelope">&nbsp;{{profile.email}}</i><br>
+                    <i class="fa fa-map-marker">&nbsp;{{profile.location}}</i><br>
+                    <a href="{{profile.github}}"><i class="fa fa-2x fa-github"></i></a>
+                    <a href="{{profile.facebook}}"><i class="fa fa-2x fa-facebook"></i></a>
+                    <a href="{{profile.linkedin}}"><i class="fa fa-2x fa-linkedin"></i></a>
+                    <a href="{{profile.twitter}}"><i class="fa fa-2x fa-twitter"></i></a>
+                    <a href="{{profile.instagram}}"><i class="fa fa-2x fa-instagram"></i></a>
+                </p>
+            </div>
+        </div> -->
         <iron-signals on-iron-signal-scroll="scrolled"></iron-signals>
     </template>
     <script>

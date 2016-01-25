@@ -8,19 +8,117 @@
             .contact{
                 margin-bottom: 0px;
             }
+
+            .title-text {
+                color: var(--accent-color);
+            }
+
+            paper-card {
+                margin: 10px 0px;
+            }
+
+            .portfolio {
+                padding-top: 5px;
+                color: var(--accent-color);
+            }
+
+            .site {
+                opacity: 0;
+                /*display: hidden;*/
+            }
         </style>
-        <div class="row contact">
-            <div class="col s6">
-                <h3>Contact</h3>
+        <h1 class="portfolio center">Portfolio</h1>
+        <div class="row container">
+            <template is="dom-repeat" items="{{profile.portfolio}}" as="site">
+            <div class="col s12">
+                <paper-card id="site-{{index}}" class="site">
+                    <div class="header style-scope paper-card center">
+                        <div class="title-text style-scope paper-card center">{{site.name}}</div>
+                    </div>
+                    <div class="card-content">
+                        <a href="{{site.site}}"><img class="responsive-img" src="{{site.image}}"></a>
+                        <p>{{site.description}}</p>
+                    </div>
+                </paper-card>
             </div>
-            <div class="col s6">
-                <iron-image src="{{profile.avatar}}" class="reponsive-img"></iron-image>
-            </div>
+            </template>
         </div>
+        <iron-signals on-iron-signal-scroll="scrolled"></iron-signals>
     </template>
     <script>
         Polymer({
-            is: 'my-portfolio'
+            is: 'my-portfolio',
+            behaviors: [
+                Polymer.NeonAnimationRunnerBehavior
+            ],
+            listeners: {
+                'scroll': 'scrolled',
+                'neon-animation-finish': '_onNeonAnimationFinish'
+            },
+            properties: {
+                profile: {
+                    observer: 'profileReady'
+                },
+                started: false,
+                allDisplayed: false,
+                animationConfig: {
+                    value: function() {
+                        return {};
+                    }
+                }
+            },
+            _onNeonAnimationFinish: function (e) {
+                this.animations[e.detail] = true;
+            },
+            scrolled: function (e) {
+                if (this.allDisplayed) {
+                    return;
+                }
+
+                if (e.detail.scrollTop >= 800) {
+                    if (!this.started) {
+                        this.start(e.detail.scrollTop);
+                    }
+                    this.started = true;
+                }
+
+                if (e.detail.scrollTop >= 1100) {
+                    this.playNext(e.detail.scrollTop);
+                }
+            },
+            start: function () {
+                this.animations = [];
+                for (var i = 0; i < this.profile.portfolio.length; i++) {
+                    this.animations.push(false);
+                    this.animationConfig['site-' + i] = {
+                        name: this.profile.portfolio[i].animation,
+                        node: document.querySelector('#site-' + i),
+                    };
+                }
+            },
+            playNext: function (scroll) {
+                var indexToPlay = -1;
+                if (scroll >= 1100 && scroll < 1800) {
+                    indexToPlay = 0;
+                }
+
+                if (scroll >= 1800 && scroll < 2500) {
+                    indexToPlay = 1;
+                }
+
+                if (scroll >= 2500) {
+                    indexToPlay = 2;
+                    this.allDisplayed = true;
+                }
+
+                for (var i = 0; i <= indexToPlay; i++) {
+                    if (!this.animations[i]) {
+                        document.querySelector('#site-' + i).style.opacity = 1;
+                        this.playAnimation('site-' + i, i);
+                    }
+                }
+
+            },
         });
     </script>
 </dom-module>

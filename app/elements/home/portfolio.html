@@ -38,7 +38,7 @@
             <h1 class="portfolio">Portfolio</h1>
             <template is="dom-repeat" items="{{profile.portfolio}}" as="site">
             <div class="col s12">
-                <paper-card id="site-{{index}}" class="site">
+                <paper-card id="site-{{index}}" class="site" elevation="5">
                     <div class="header style-scope paper-card center">
                         <div class="title-text style-scope paper-card center">{{site.name}}</div>
                     </div>
@@ -82,15 +82,19 @@
                     return;
                 }
 
-                if (e.detail.scrollTop >= 800) {
+                if (e.detail.scrollTop >= 800 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 1000)
+                    ) {
                     if (!this.started) {
                         this.start(e.detail.scrollTop);
                     }
                     this.started = true;
                 }
 
-                if (e.detail.scrollTop >= 1100) {
-                    this.playNext(e.detail.scrollTop);
+                if (e.detail.scrollTop >= 1100 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 1300)
+                    ) {
+                    this.playNext(e.detail.scrollTop, e.detail.clientWidth);
                 }
             },
             start: function () {
@@ -103,17 +107,20 @@
                     };
                 }
             },
-            playNext: function (scroll) {
-                var indexToPlay = -1;
-                if (scroll >= 1100 && scroll < 1800) {
+            playNext: function (scroll, width) {
+                var indexToPlay = -1,
+                    surplus = width < 800 && 400 || 0;
+
+
+                if (scroll >= (1100 - surplus) && scroll < (1800 - surplus)) {
                     indexToPlay = 0;
                 }
 
-                if (scroll >= 1800 && scroll < 2500) {
+                if (scroll >= (1800 - surplus) && scroll < (2500 - surplus)) {
                     indexToPlay = 1;
                 }
 
-                if (scroll >= 2500) {
+                if (scroll >= (2400 - surplus)) {
                     indexToPlay = 2;
                     this.allDisplayed = true;
                 }

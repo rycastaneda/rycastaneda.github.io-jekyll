@@ -27,7 +27,7 @@
         <div class="section">
             <div class="row container">
                 <template is="dom-repeat" items="{{profile.skills}}" as="skill">
-                    <paper-card class="col s12 skill" id="skill-{{index}}">
+                    <paper-card class="col s12 skill" id="skill-{{index}}" elevation="3">
                         <div class="header style-scope paper-card">
                             <div class="title-text left style-scope paper-card">{{skill.skill}}</div>
                             <div class="title-text right style-scope paper-card"><span class="rating">{{skill.rating}}</span> / 10</div>
@@ -68,15 +68,19 @@
                     return;
                 }
 
-                if (e.detail.scrollTop > 3000) {
+                if (e.detail.scrollTop > 3000 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 2000)
+                    ) {
                     if (!this.started) {
                         this.start(e.detail.scrollTop);
                     }
                     this.started = true;
                 }
 
-                if (e.detail.scrollTop >= 3300) {
-                    this.playNext(e.detail.scrollTop);
+                if (e.detail.scrollTop >= 3300 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 26)
+                    ) {
+                    this.playNext(e.detail.scrollTop, e.detail.clientWidth);
                 }
             },
             profileReady: function () {
@@ -98,8 +102,9 @@
                 }
                 requestAnimationFrame(this.nextProgress.bind(this, idx));
             },
-            playNext: function (scroll) {
-                var indexToPlay = Math.floor(scroll / 100 - 33),
+            playNext: function (scroll, width) {
+                var surplus = width < 800 && 6 || 0,
+                    indexToPlay = Math.floor(scroll / 100 - (32 - surplus)),
                     i = 0,
                     skillsToPlay;
 

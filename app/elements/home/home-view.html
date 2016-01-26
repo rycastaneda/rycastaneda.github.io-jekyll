@@ -57,17 +57,13 @@
             }
 
             #contact {
-                color: var(--primary-text-color);
+                color: var(--light-primary-color);
                 background: var(--dark-primary-color);
                 margin-bottom: 0px;
             }
 
             a > i {
                 margin-left: 5px;
-            }
-
-            .dark, .dark > a {
-                color: var(--primary-text-color);
             }
 
             .light, .light > a {
@@ -80,6 +76,11 @@
 
             form {
                 margin-bottom: 20px;
+            }
+
+            .social-icons {
+                width: 40px;
+                height: 40px;
             }
         </style>
 
@@ -108,12 +109,12 @@
 
 
         <div class="row contact" id="contact">
-            <div class="col s6">
+            <div class="col s12 center">
                 <iron-image src="{{profile.avatar}}"></iron-image>
             </div>
-            <div class="col s6 center">
+            <div class="col s12 center">
                 <h2>Contact</h2>
-                <form class="row" action="">
+                <form class="row container" action="">
                     <div class="input-field col s12">
                           <input id="first_name" type="text" class="validate">
                           <label for="first_name">Name</label>
@@ -127,53 +128,19 @@
                         <button class="waves-effect waves-light btn">Submit</button>
                     </div>
                 </form>
-                <p class="dark">
+                <p class="light">
                     Ryan Castañeda<br>
-                    <iron-icon icon="icons:mail"></iron-icon>
-
-                    <i class="fa fa-envelope">&nbsp;{{profile.email}}</i><br>
-                    <i class="fa fa-map-marker">&nbsp;{{profile.location}}</i><br>
-                    <a href="{{profile.github}}"><i class="fa fa-2x fa-github"></i></a>
-                    <a href="{{profile.facebook}}"><i class="fa fa-2x fa-facebook"></i></a>
-                    <a href="{{profile.linkedin}}"><i class="fa fa-2x fa-linkedin"></i></a>
-                    <a href="{{profile.twitter}}"><i class="fa fa-2x fa-twitter"></i></a>
-                    <a href="{{profile.instagram}}"><i class="fa fa-2x fa-instagram"></i></a>
+                    <iron-icon icon="maps:mail"></iron-icon>{{profile.email}}<br>
+                    <iron-icon icon="maps:add-location"></iron-icon>{{profile.location}}</i><br>
+                    <a href="{{profile.github}}"><iron-icon class="social-icons" icon="my-icons:github-square"></iron-icon></i></a>
+                    <a href="{{profile.facebook}}"><iron-icon class="social-icons" icon="my-icons:facebook-square"></iron-icon></a>
+                    <a href="{{profile.linkedin}}"><iron-icon class="social-icons" icon="my-icons:linkedin-square"></iron-icon></a>
+                    <a href="{{profile.twitter}}"><iron-icon class="social-icons" icon="my-icons:twitter-square"></iron-icon></i></a>
+                    <a href="{{profile.instagram}}"><iron-icon class="social-icons" icon="my-icons:instagram"></iron-icon></a>
                 </p>
             </div>
 
         </div>
-        <!-- <div class="parallax-container home valign-wrapper" id="cont">
-            <div class="parallax" id="parallax">
-                <img class="blur" src="{{profile.avatar}}">
-            </div>
-            <div class="container center dark">
-                <h2>Contact</h2>
-                <form class="row" action="">
-                    <div class="input-field col s12">
-                          <input id="first_name" type="text" class=" dark">
-                          <label for="first_name" class="dark">Name</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <textarea id="textarea1" class="materialize-textarea dark"></textarea>
-                      <label for="textarea1" class="dark">Message</label>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <button class="waves-effect waves-light btn">Submit</button>
-                    </div>
-                </form>
-                <p class="dark">
-                    Ryan Castañeda<br>
-                    <i class="fa fa-envelope">&nbsp;{{profile.email}}</i><br>
-                    <i class="fa fa-map-marker">&nbsp;{{profile.location}}</i><br>
-                    <a href="{{profile.github}}"><i class="fa fa-2x fa-github"></i></a>
-                    <a href="{{profile.facebook}}"><i class="fa fa-2x fa-facebook"></i></a>
-                    <a href="{{profile.linkedin}}"><i class="fa fa-2x fa-linkedin"></i></a>
-                    <a href="{{profile.twitter}}"><i class="fa fa-2x fa-twitter"></i></a>
-                    <a href="{{profile.instagram}}"><i class="fa fa-2x fa-instagram"></i></a>
-                </p>
-            </div>
-        </div> -->
         <iron-signals on-iron-signal-scroll="scrolled"></iron-signals>
     </template>
     <script>
@@ -195,8 +162,7 @@
                     }
                 }
             },
-            _onNeonAnimationFinish: function (e) {
-                console.log(e);
+            _onNeonAnimationFinish: function () {
                 this.$.about.style.opacity = 1;
             },
             ready: function () {},
@@ -237,7 +203,6 @@
                 }
             },
             getUser: function (profile) {
-                console.log(profile);
                 return !profile;
             }
         });

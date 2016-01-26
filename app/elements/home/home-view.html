@@ -58,7 +58,7 @@
 
             #contact {
                 color: var(--primary-text-color);
-                background-color: var(--light-primary-color);
+                background: var(--dark-primary-color);
                 margin-bottom: 0px;
             }
 
@@ -115,7 +115,7 @@
                 <h2>Contact</h2>
                 <form class="row" action="">
                     <div class="input-field col s12">
-                          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                          <input id="first_name" type="text" class="validate">
                           <label for="first_name">Name</label>
                         </div>
                     <div class="input-field col s12">
@@ -129,6 +129,8 @@
                 </form>
                 <p class="dark">
                     Ryan Castañeda<br>
+                    <iron-icon icon="icons:mail"></iron-icon>
+
                     <i class="fa fa-envelope">&nbsp;{{profile.email}}</i><br>
                     <i class="fa fa-map-marker">&nbsp;{{profile.location}}</i><br>
                     <a href="{{profile.github}}"><i class="fa fa-2x fa-github"></i></a>

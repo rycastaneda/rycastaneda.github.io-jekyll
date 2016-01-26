@@ -5,7 +5,8 @@
                 display: block;
             }
         </style>
-        <iron-ajax url="/scripts/data.json" handle-as="json" on-response="handleProfileResponse" auto></iron-ajax>
+        <iron-ajax url="https://rycastaneda.firebaseio.com/rycastaneda.json" handle-as="json" on-response="handleProfileResponse" auto></iron-ajax>
+
     </template>
     <script>
     Polymer({

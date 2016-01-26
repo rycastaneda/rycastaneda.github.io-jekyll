@@ -15,6 +15,7 @@
 
             paper-card {
                 margin: 10px 0px;
+                background-color: var(--text-primary-color);
             }
 
             h1 {
@@ -33,8 +34,8 @@
                 /*display: hidden;*/
             }
         </style>
-        <h1 class="portfolio center">Portfolio</h1>
         <div class="row container">
+            <h1 class="portfolio">Portfolio</h1>
             <template is="dom-repeat" items="{{profile.portfolio}}" as="site">
             <div class="col s12">
                 <paper-card id="site-{{index}}" class="site">

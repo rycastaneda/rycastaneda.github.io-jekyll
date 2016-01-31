@@ -41,16 +41,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         document.getElementById('mainContainer').addEventListener('scroll', function (e) {
             app.debounce('scroll', function () {
                 app.fire('iron-signal', {name: 'scroll', data: e.target});
-                if (e.target.scrollTop > 500) {
-                    app.$.menubtn.customStyle['--paper-icon-button-ink-color'] = '#8BC34A';
-                    app.$.menubtn.style.color = '#455A64';
-                    app.$.menubtn.updateStyles();
-                    // app.fire('iron-signal', {name: 'scroll-btm', data: null});
-                } else {
-                    app.$.menubtn.customStyle['--paper-icon-button-ink-color'] = '#455A64';
-                    app.$.menubtn.style.color = '#CFD8DC';
-                    app.$.menubtn.updateStyles();
-                }
             }, 400);
         });
 
@@ -96,8 +86,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         app.$.paperDrawerPanel.closeDrawer();
     };
 
-    app.toggleSidebar = function() {
-        document.querySelector('#paperDrawerPanel').togglePanel();
-    };
+    app.onSelect = function (e) {
+        var link = e.currentTarget.getAttribute('data-menu');
+        console.log("   link",     link);
+        page('/' + link);
+    }
 
 })(document);

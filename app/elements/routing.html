@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
 <script src="../bower_components/page/page.js"></script>
+<script src="../bower_components/iscroll/build/iscroll.js"></script>
 <script>
 window.addEventListener('WebComponentsReady', function() {
 
@@ -35,6 +36,10 @@ window.addEventListener('WebComponentsReady', function() {
     }
 
     // Routes
+    page('/github', function () {
+        app.route = 'github';
+    });
+
     page('*', scrollToTop, closeDrawer, function(ctx, next) {
         next();
     });
@@ -49,10 +54,6 @@ window.addEventListener('WebComponentsReady', function() {
 
     page('/linkedin', function () {
         app.route = 'linkedin';
-    });
-
-    page('/github', function () {
-        app.route = 'github';
     });
 
     page('/animations', function () {

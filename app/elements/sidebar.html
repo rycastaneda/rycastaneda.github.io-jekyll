@@ -20,7 +20,7 @@
             }
         </style>
         <paper-toolbar>
-            <paper-menu id="menu" selected="{{route}}" attr-for-selected="data-menu">
+            <paper-menu id="menu" selected="{{route}}" attr-for-selected="data-menu" on-iron-select="onSelect">
                 <paper-item class="menu-item" role="menuitem" on-tap="onSelect" data-menu="home">
                     Home
                 </paper-item>
@@ -52,10 +52,6 @@
             _loading: function () {
                 this.loading = false;
                 this.$$('#spinner').active = false;
-            },
-            onSelect: function (e) {
-                var link = e.currentTarget.getAttribute('data-menu');
-                page('/' + link);
             }
         });
     </script>

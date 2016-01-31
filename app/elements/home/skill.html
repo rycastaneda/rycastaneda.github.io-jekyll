@@ -26,17 +26,17 @@
         </style>
         <div class="section">
             <div class="row container">
-                <template is="dom-repeat" items="{{profile.skills}}" as="skill">
-                    <paper-card class="col s12 skill" id="skill-{{index}}" elevation="3">
-                        <div class="header style-scope paper-card">
-                            <div class="title-text left style-scope paper-card">{{skill.skill}}</div>
-                            <div class="title-text right style-scope paper-card"><span class="rating">{{skill.rating}}</span> / 10</div>
-                        </div>
-                        <div class="card-content">
-                            <paper-progress id="progress-{{index}}" value="{{skill.rating}}" max="10" class=""></paper-progress><br>
-                        </div>
-                    </paper-card>
-                </template>
+                <paper-card class="col s12"  elevation="3">
+                    <div class="card-content">
+                        <template is="dom-repeat" items="{{profile.skills}}" as="skill">
+                            <div id="skill-{{index}}" class="skill">
+                                <div class="title-text right style-scope paper-card"><span class="rating">{{skill.rating}}</span> / 10</div>
+                                <div class="title-text left style-scope paper-card">{{skill.skill}}</div>
+                                <paper-progress id="progress-{{index}}" value="{{skill.rating}}" max="10" class=""></paper-progress><br>
+                            </div>
+                        </template>
+                    </div>
+                </paper-card>
             </div>
         </div>
         <iron-signals on-iron-signal-scroll="scrolled"></iron-signals>
@@ -68,8 +68,8 @@
                     return;
                 }
 
-                if (e.detail.scrollTop > 3000 ||
-                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 2000)
+                if (e.detail.scrollTop >= 1300 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 1700)
                     ) {
                     if (!this.started) {
                         this.start(e.detail.scrollTop);
@@ -77,8 +77,8 @@
                     this.started = true;
                 }
 
-                if (e.detail.scrollTop >= 3300 ||
-                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 26)
+                if (e.detail.scrollTop >= 1600 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 1800)
                     ) {
                     this.playNext(e.detail.scrollTop, e.detail.clientWidth);
                 }
@@ -93,7 +93,7 @@
                 }
             },
             _onNeonAnimationFinish: function (e) {
-                document.querySelector('#skill-' + e.detail).opacity = 1;
+                document.querySelector('#skill-' + e.detail).style.opacity = 1;
                 this.nextProgress(e.detail);
             },
             nextProgress: function (idx) {
@@ -103,17 +103,11 @@
                 requestAnimationFrame(this.nextProgress.bind(this, idx));
             },
             playNext: function (scroll, width) {
-                var surplus = width < 800 && 6 || 0,
-                    indexToPlay = Math.floor(scroll / 100 - (32 - surplus)),
-                    i = 0,
+                var i = 0,
                     skillsToPlay;
 
-                if (indexToPlay > this.profile.skills.length) {
-                    skillsToPlay = this.profile.skills.length - 1;
-                    this.allDisplayed = true;
-                } else if (indexToPlay < this.profile.skills.length) {
-                    skillsToPlay = indexToPlay;
-                }
+                skillsToPlay = this.profile.skills.length - 1;
+                this.allDisplayed = true;
 
                 for (i = 0; i <= skillsToPlay; i++) {
                     if (!this.profile.skills[i].rating) {
@@ -131,7 +125,6 @@
                     this.animationConfig['skill-' + i] = {
                         name: 'fade-in-animation',
                         node: document.querySelector('#skill-' + i),
-                        // timing: {delay: 1000}
                     };
                 }
             }

@@ -5,17 +5,11 @@
                 display: block;
                 background: var(--dark-primary-color);
             }
-            .contact{
-                margin-bottom: 0px;
-            }
-
-            .title-text {
-                color: var(--accent-color);
-            }
 
             paper-card {
-                margin: 10px 0px;
+                margin: 20px 0px;
                 background-color: var(--text-primary-color);
+                min-height: 620px;
             }
 
             h1 {
@@ -26,18 +20,24 @@
             }
 
             .portfolio {
-                color: var(--accent-color);
+                color: var(--light-primary-color);
             }
 
             .site {
                 opacity: 0;
-                /*display: hidden;*/
+            }
+
+            img.responsive-img {
+                height:  350px;
+                width:  100%;
+            }
+            paper-button {
+                color: var(--light-primary-color);
             }
         </style>
-        <div class="row container">
-            <h1 class="portfolio">Portfolio</h1>
+        <div class="row">
             <template is="dom-repeat" items="{{profile.portfolio}}" as="site">
-            <div class="col s12">
+            <div class="col s4">
                 <paper-card id="site-{{index}}" class="site" elevation="5">
                     <div class="header style-scope paper-card center">
                         <div class="title-text style-scope paper-card center">{{site.name}}</div>
@@ -49,6 +49,10 @@
                 </paper-card>
             </div>
             </template>
+
+            <div class="center">
+                <paper-button on-tap="seeMore">More</paper-button>
+            </div>
         </div>
         <iron-signals on-iron-signal-scroll="scrolled"></iron-signals>
     </template>
@@ -74,6 +78,9 @@
                     }
                 }
             },
+            seeMore: function () {
+                page('/github');
+            },
             _onNeonAnimationFinish: function (e) {
                 this.animations[e.detail] = true;
             },
@@ -82,8 +89,8 @@
                     return;
                 }
 
-                if (e.detail.scrollTop >= 800 ||
-                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 1000)
+                if (e.detail.scrollTop >= 600 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 800)
                     ) {
                     if (!this.started) {
                         this.start(e.detail.scrollTop);
@@ -91,8 +98,8 @@
                     this.started = true;
                 }
 
-                if (e.detail.scrollTop >= 1100 ||
-                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 1300)
+                if (e.detail.scrollTop >= 900 ||
+                    (e.detail.clientWidth < 800 && e.detail.scrollTop >= 1100)
                     ) {
                     this.playNext(e.detail.scrollTop, e.detail.clientWidth);
                 }
@@ -106,26 +113,14 @@
                         node: document.querySelector('#site-' + i),
                     };
                 }
+
             },
             playNext: function (scroll, width) {
                 var indexToPlay = -1,
-                    surplus = width < 800 && 400 || 0;
 
+                indexToPlay = this.animations.length;
 
-                if (scroll >= (1100 - surplus) && scroll < (1800 - surplus)) {
-                    indexToPlay = 0;
-                }
-
-                if (scroll >= (1800 - surplus) && scroll < (2500 - surplus)) {
-                    indexToPlay = 1;
-                }
-
-                if (scroll >= (2400 - surplus)) {
-                    indexToPlay = 2;
-                    this.allDisplayed = true;
-                }
-
-                for (var i = 0; i <= indexToPlay; i++) {
+                for (var i = 0; i < indexToPlay; i++) {
                     if (!this.animations[i]) {
                         document.querySelector('#site-' + i).style.opacity = 1;
                         this.playAnimation('site-' + i, i);

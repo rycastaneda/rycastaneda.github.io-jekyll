@@ -3,16 +3,18 @@
         <style>
             :host {
                 display: block;
-                color: var(--dark-primary-color);
+                color: var(--default-primary-color);
             }
         </style>
-        <div hidden="{{taskLeft(todos.list.length)}}">No task left</div>
+        <div class="container">
+            <div hidden="{{taskLeft(todos.list.length)}}">No task left</div>
 
-        <todo-control on-clear-all="clearAll" current-todo="{{currentTodo}}" filter-selection="{{filterSelection}}"></todo-control>
+            <todo-control on-clear-all="clearAll" current-todo="{{currentTodo}}" filter-selection="{{filterSelection}}"></todo-control>
 
-        <todo-list todos="{{todos.list}}" on-delete="deleteTodo" on-selected-todo="selectedTodo" on-todos-changed="todoListener" filter-selection="{{filterSelection}}"></todo-list>
-        input
-        <paper-input id='todoInput' on-keydown="_checkAdd"></paper-input>
+            <todo-list todos="{{todos.list}}" on-delete="deleteTodo" on-selected-todo="selectedTodo" on-todos-changed="todoListener" filter-selection="{{filterSelection}}"></todo-list>
+            input
+            <paper-input id='todoInput' on-keydown="_checkAdd"></paper-input>
+        </div>
     </template>
     <script>
         Polymer({

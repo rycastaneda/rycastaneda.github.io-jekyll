@@ -82,14 +82,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </paper-header-panel>
             <paper-scroll-header-panel main id="headerPanelMain">
                 <div class="content">
-                    <paper-icon-button id="menubtn" icon="menu" on-tap="toggleSidebar" class="menu-button"></paper-icon-button>
+                    <menu-icon route="{{route}}"></menu-icon>
                     <div class="clearfix"></div>
-                    <neon-animated-pages id="pages" class="flex" selected="{{route}}" attr-for-selected="data-menu" entry-animation="slide-from-right-animation" exit-animation="slide-left-animation" on-iron-select="selectSomething">
+                    <neon-animated-pages id="pages" class="flex" selected="{{route}}" attr-for-selected="data-menu" entry-animation="slide-from-right-animation" exit-animation="slide-left-animation">
                         <neon-animatable data-menu="todo">
-                            <div class="container">
-                                <todo-data todos="{{todos}}"></todo-data>
-                                <todo-view todos="{{todos}}"></todo-view>
-                           </div>
+                            <todo-data todos="{{todos}}"></todo-data>
+                            <todo-view todos="{{todos}}"></todo-view>
                         </neon-animatable>
                         <neon-animatable data-menu="github">
                             <div>

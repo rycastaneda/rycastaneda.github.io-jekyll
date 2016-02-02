@@ -24681,13 +24681,9 @@ window.addEventListener('WebComponentsReady', function() {
             changeColors: function (e) {
                 switch (this.route) {
                     case 'home':
-                        if(e) {
-                            console.log("   e",     e);
-                        }
                         if (e && e.detail.scrollTop > 500) {
                             this.$.menubtn.style.color = '#455A64';
                             this.$.menubtn.updateStyles();
-                            // this.fire('iron-signal', {name: 'scroll-btm', data: null});
                         } else {
                             this.$.menubtn.style.color = '#CFD8DC';
                             this.$.menubtn.updateStyles();
@@ -24701,20 +24697,6 @@ window.addEventListener('WebComponentsReady', function() {
                         this.$.menubtn.style.color = '#455A64';
                         this.$.menubtn.updateStyles();
                 }
-
-                // if(this.route === 'home') {
-                //     if (e && e.target.scrollTop > 500) {
-                //         this.$.menubtn.style.color = '#455A64';
-                //         this.$.menubtn.updateStyles();
-                //         // this.fire('iron-signal', {name: 'scroll-btm', data: null});
-                //     } else {
-                //         this.$.menubtn.style.color = '#CFD8DC';
-                //         this.$.menubtn.updateStyles();
-                //     }
-                // } else {
-                //     this.$.menubtn.style.color = '#455A64';
-                //     this.$.menubtn.updateStyles();
-                // }
             },
             toggleSidebar: function() {
                 document.querySelector('#paperDrawerPanel').togglePanel();
@@ -25511,7 +25493,7 @@ window.addEventListener('WebComponentsReady', function() {
         </style>
         <div class="row">
             <template is="dom-repeat" items="{{profile.portfolio}}" as="site">
-            <div class="col s4">
+            <div class="col s12 l4 m4">
                 <paper-card id="site-{{index}}" class="site" elevation="5">
                     <div class="header style-scope paper-card center">
                         <div class="title-text style-scope paper-card center">{{site.name}}</div>
@@ -25604,7 +25586,8 @@ window.addEventListener('WebComponentsReady', function() {
             },
         });
     </script>
-</dom-module><dom-module id="my-skill" assetpath="home/">
+</dom-module>
+<dom-module id="my-skill" assetpath="home/">
     <template>
         <style>
             :host {

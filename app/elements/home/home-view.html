@@ -27,7 +27,7 @@
             }
 
             .home {
-                height: 1000px;
+                /*height: 1000px;*/
             }
 
             h3, h5 {
@@ -66,6 +66,12 @@
             .social-icons {
                 width: 40px;
                 height: 40px;
+            }
+
+            #cont {
+                /*position: absolute;*/
+                /*position: absolute;*/
+                /*top: 0; right: 0; bottom: 0; left: 0;*/
             }
 
             #cap img{
@@ -160,7 +166,15 @@
                     this.$.about.style.opacity = 1;
                 }
             },
-            ready: function () {},
+            ready: function () {
+                var height = window.innerHeight
+                || document.documentElement.clientHeight
+                || document.body.clientHeight;
+
+                this.$.cont.style.height = height + 'px';
+                this.$.contact.style.height = height + 'px';
+
+            },
             routeChanged: function () {
                 if (this.route === 'home') {
                     this.playAnimation('flash', 'fade');

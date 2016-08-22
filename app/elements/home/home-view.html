@@ -102,26 +102,35 @@
 
         <my-skill profile="{{profile}}" id="skill" hidden="{{!showAbout}}"></my-skill>
 
+        <div class="row container center">
+            <h2 class="header"> Todo App in Google's Polymer</h2>
+            <div class="col s12">
+                <todo-data todos="{{todos}}"></todo-data>
+                <todo-view todos="{{todos}}"></todo-view>
+            </div>
+        </div>
+        <iron-request id="xhr"></iron-request>
         <div class="parallax-container home valign-wrapper" id="contact">
             <div class="parallax" id="cap">
                 <img src="/images/plain.png">
             </div>
             <div class="container center">
                 <h2>Contact</h2>
-                <form action="">
+                <div hidden="{{feedback}}">
                     <div class="input-field">
-                          <input id="first_name" type="text" class="validate">
-                          <label for="first_name">Name</label>
-                        </div>
+                          <input id="email" type="text" class="validate">
+                          <label for="email">Email</label>
+                    </div>
                     <div class="input-field">
                       <textarea id="textarea1" class="materialize-textarea"></textarea>
                       <label for="textarea1">Message</label>
                     </div>
 
                     <div class="input-field">
-                        <button class="waves-effect waves-light btn">Submit</button>
+                        <paper-button on-click="_checkAdd">Submit</paper-button>
                     </div>
-                </form>
+                </div>
+                <h2 class="header">{{feedback}}</h2>
                 <p class="light">
                     {{profile.name}}<br>
                     <iron-icon icon="maps:mail"></iron-icon>{{profile.email}}<br>
@@ -143,47 +152,17 @@
             behaviors: [
                 Polymer.NeonAnimationRunnerBehavior
             ],
-            properties: {
-                route: {
-                    observer: 'routeChanged'
-                }
-            },
-            listeners: {
-                'scroll': 'scrolled',
-                'neon-animation-finish': '_onNeonAnimationFinish'
-            },
-            scrolled: function (e) {
-                if (e.detail.scrollTop >= 250) {
-                    this.$.about.style.opacity = 1
-                    if (!this.showAbout) {
-                        this.showAbout = true;
-                        this.playAnimation('entry');
-                    }
-                }
-            },
-            _onNeonAnimationFinish: function (e) {
-                if (e.detail !== 'fade') {
-                    this.$.about.style.opacity = 1;
-                }
-            },
-            ready: function () {
-                var height = window.innerHeight
-                || document.documentElement.clientHeight
-                || document.body.clientHeight;
-
-                this.$.cont.style.height = height + 'px';
-                this.$.contact.style.height = height + 'px';
-
-            },
-            routeChanged: function () {
-                if (this.route === 'home') {
-                    this.playAnimation('flash', 'fade');
-                }
-            },
+            // properties: {
+            //     feedback: String,
+            //     route: {
+            //         observer: 'routeChanged'
+            //     }
+            // },
             properties: {
                 route: {
                     observer: 'routeChanged'
                 },
+                feedback: {type:String, value: ''},
                 showLoading: {
                     type: Boolean,
                     computed: 'getUser(profile)'
@@ -216,6 +195,60 @@
                 showAbout: {
                     type: Boolean,
                     value: false
+                }
+            },
+            listeners: {
+                'scroll': 'scrolled',
+                'neon-animation-finish': '_onNeonAnimationFinish'
+            },
+            scrolled: function (e) {
+                if (e.detail.scrollTop >= 250) {
+                    this.$.about.style.opacity = 1
+                    if (!this.showAbout) {
+                        this.showAbout = true;
+                        this.playAnimation('entry');
+                    }
+                }
+            },
+            _checkAdd: function (e) {
+                var _this = this;
+
+                if (!this.$.textarea1.value && !this.$.email.value) {
+                    return;
+                }
+
+                this.$.xhr.send({
+                    url: 'https://message-9e565.firebaseio.com/.json',
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name: this.$.email.value,
+                        message: this.$.textarea1.value
+                    })
+                }).then(function () {
+                    _this.feedback = 'Message Sent';
+                });
+
+                this.$.textarea1.value = '';
+                this.$.email.value = '';
+
+            },
+            _onNeonAnimationFinish: function (e) {
+                if (e.detail !== 'fade') {
+                    this.$.about.style.opacity = 1;
+                }
+            },
+            ready: function () {
+                var height = window.innerHeight
+                || document.documentElement.clientHeight
+                || document.body.clientHeight;
+
+                this.$.cont.style.height = height + 'px';
+                this.$.contact.style.height = height + 'px';
+
+            },
+            routeChanged: function () {
+                if (this.route === 'home') {
+                    this.playAnimation('flash', 'fade');
                 }
             },
             getUser: function (profile) {

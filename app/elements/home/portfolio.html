@@ -34,6 +34,18 @@
             paper-button {
                 color: var(--light-primary-color);
             }
+            .desc {
+                display: block;
+                display: -webkit-box;
+                max-width: 400px;
+                height: 109.2px;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1.625;
+                text-overflow: ellipsis;
+            }
         </style>
         <div class="row">
             <template is="dom-repeat" items="{{profile.portfolio}}" as="site">
@@ -44,7 +56,7 @@
                     </div>
                     <div class="card-content">
                         <a href="{{site.site}}"><img class="responsive-img" src="{{site.image}}"></a>
-                        <p>{{site.description}}</p>
+                        <p class="desc">{{site.description}}</p>
                     </div>
                 </paper-card>
             </div>

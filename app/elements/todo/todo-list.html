@@ -3,10 +3,10 @@
         <style>
             :host {
                 display: block;
+                overflow-y: auto;
+                height: 300px;
             }
         </style>
-        Task Done: <span>{{taskDone}}</span>
-        Task Left: <span>{{taskLeft}}</span>
         <template is="dom-repeat" items="{{todos}}" as="todo" filter="{{filterState(filterSelection)}}" observe="isComplete filterSelection">
             <todo-item todo="{{todo}}" index="{{index}}"></todo-item>
         </template>
@@ -14,18 +14,6 @@
     <script>
         Polymer({
             is: 'todo-list',
-            properties: {
-                taskDone: {
-                    type: String,
-                    computed: '_computeTaskDone(todos.*)',
-                    notify: true
-                },
-                taskLeft: {
-                    type: String,
-                    computed: '_computeTaskLeft(todos.*)',
-                    notify: true
-                }
-            },
             filterState: function (filterBy) {
                 if (filterBy !== 'all') {
                     return function (item) {
@@ -37,16 +25,8 @@
                     return true;
                 };
             },
-            _computeTaskDone: function () {
-                return this.todos.filter(function (e) {
-                    return e.isComplete;
-                }).length;
+            ready: function () {
             },
-            _computeTaskLeft: function () {
-                return this.todos.filter(function (e) {
-                    return !e.isComplete;
-                }).length;
-            }
 
         });
     </script>

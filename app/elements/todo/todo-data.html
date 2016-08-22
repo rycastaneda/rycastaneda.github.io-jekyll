@@ -4,6 +4,7 @@
         value="{{todos}}"
         on-iron-localstorage-load-empty="initializeDefaultTodos"
       ></iron-localstorage>
+    <iron-ajax url="https://todoapp-74ab8.firebaseio.com/.json" handle-as="json" on-response="handleResponse" auto></iron-ajax>
 </template>
     <script>
         Polymer({
@@ -28,6 +29,9 @@
                         }
                     ]
                 };
+            },
+            handleResponse: function (data) {
+                this.todos = data.detail.response;
             },
             selectedTodo: function (event) {
                 this.todos.current_todo = event.detail.index;

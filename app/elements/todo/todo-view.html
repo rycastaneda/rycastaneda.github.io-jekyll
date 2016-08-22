@@ -5,21 +5,74 @@
                 display: block;
                 color: var(--default-primary-color);
             }
+            .card {
+                width: 100%;
+            }
+            .card .card-content {
+                padding: 5px 20px;
+            }
+            .floated-label-placeholder {
+                display: none;
+            };
+            paper-input {
+                --paper-input-container-color: grey;
+                --paper-input-container-label: {
+                    display: none;
+                };
+                --paper-input-container-underline: {
+                    display: none;
+                };
+                --paper-input-container-underline-focus: {
+                    display: none;
+                    /*box-shadow: 0 1px 0 0 #0f9d58;*/
+                };
+            }
+            .card-action {
+                border-top: none !important;
+                padding: 0 !important;
+            }
         </style>
         <div class="container">
-            <div hidden="{{taskLeft(todos.list.length)}}">No task left</div>
-
-            <todo-control on-clear-all="clearAll" current-todo="{{currentTodo}}" filter-selection="{{filterSelection}}"></todo-control>
-
-            <todo-list todos="{{todos.list}}" on-delete="deleteTodo" on-selected-todo="selectedTodo" on-todos-changed="todoListener" filter-selection="{{filterSelection}}"></todo-list>
-            input
-            <paper-input id='todoInput' on-keydown="_checkAdd"></paper-input>
+            <div class="valign-wrapper">
+                <div class="card valign center">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <paper-input no-label-float="true" placeholder="What needs to be done?" id='todoInput' on-keydown="_checkAdd"></paper-input>
+                        </div>
+                        <todo-list done="{{taskDone}}" left="{{taskLeft}}" todos="{{todos.list}}" on-delete="deleteTodo" on-selected-todo="selectedTodo" on-todos-changed="todoListener" filter-selection="{{filterSelection}}"></todo-list>
+                    </div>
+                    <div class="card-action">
+                        <todo-control done="{{taskDone}}" left="{{taskLeft}}" on-clear-all="clearAll" current-todo="{{currentTodo}}" filter-selection="{{filterSelection}}"></todo-control>
+                    </div>
+                </div>
+            </div>
         </div>
     </template>
     <script>
         Polymer({
             is: 'todo-view',
-            properties: {},
+            properties: {
+                taskDone: {
+                    type: String,
+                    computed: '_computeTaskDone(todos.*)',
+                    notify: true
+                },
+                taskLeft: {
+                    type: String,
+                    computed: '_computeTaskLeft(todos.*)',
+                    notify: true
+                }
+            },
+            _computeTaskDone: function () {
+                return this.todos.list.filter(function (e) {
+                    return e.isComplete;
+                }).length;
+            },
+            _computeTaskLeft: function () {
+                return this.todos.list.filter(function (e) {
+                    return !e.isComplete;
+                }).length;
+            },
             todoListener: function (data) {
                 console.log('todos change listener', data);
             },

@@ -1,0 +1,259 @@
+{
+    "basics": {
+        "name": "Ryan Castañeda",
+        "picture": "https://avatars1.githubusercontent.com/u/4694510?v=4",
+        "label": "Senior Frontend/Javascript Engineer ",
+        "headline": "The ability to bend the DOM at will",
+        "summary": "Ryan is a frontend developer based on the Philippines that helps companies offer long term solutions,  attract visitors and help them signup as well as increase site retention via faster load speed without compromising client-approved design. Ryan is well-versed in doing frontend related work even in a high-pressured environment, always looking for ways to improve his craft in every time his code editor is open. ",
+        "website": "http://rycastaneda.github.io/",
+        "blog": null,
+        "yearsOfExperience": 7,
+        "id": "ac05d13e-cbc8-4d2f-953a-5c6c205c5c90",
+        "username": "rycastaneda",
+        "karma": 11,
+        "email": "castaneda.ry@gmail.com",
+        "region": "Manila, Philippines",
+        "location": {},
+        "phone": "+639059775410",
+        "followers": 4,
+        "following": 1,
+        "profiles": [
+            {
+                "network": "gitconnected",
+                "username": "rycastaneda",
+                "url": "https://gitconnected.com/rycastaneda"
+            },
+            {
+                "network": "GitHub",
+                "username": "rycastaneda",
+                "url": "https://github.com/rycastaneda"
+            }
+        ]
+    },
+    "skills": [
+        {
+            "name": "React",
+            "level": "Advanced",
+            "rating": 4,
+            "yearsOfExperience": 3,
+            "keywords": []
+        },
+        {
+            "name": "JavaScript",
+            "level": "Expert",
+            "rating": 5,
+            "yearsOfExperience": 7,
+            "keywords": []
+        },
+        {
+            "name": "VueJS",
+            "level": "Expert",
+            "rating": 5,
+            "yearsOfExperience": 2,
+            "keywords": []
+        },
+        {
+            "name": "HTML",
+            "level": "Expert",
+            "rating": 5,
+            "yearsOfExperience": null,
+            "keywords": []
+        },
+        {
+            "name": "CSS3 Concepts (Grids, Flexbox)",
+            "level": "Advanced",
+            "rating": 4,
+            "yearsOfExperience": null,
+            "keywords": []
+        }
+    ],
+    "projects": [
+        {
+            "name": "portfolio",
+            "displayName": "portfolio",
+            "summary": "",
+            "website": "",
+            "githubUrl": "https://github.com/rycastaneda/portfolio",
+            "primaryLanguage": "",
+            "languages": [],
+            "libraries": [],
+            "images": [],
+            "videos": []
+        },
+        {
+            "name": "crosswords",
+            "displayName": "crosswords",
+            "summary": "Crossword Shopify site ",
+            "website": "http://crosswords-au.myshopify.com",
+            "githubUrl": "https://github.com/rycastaneda/crosswords",
+            "primaryLanguage": "Liquid",
+            "languages": [
+                "JavaScript",
+                "Liquid",
+                "CSS"
+            ],
+            "libraries": [],
+            "images": [],
+            "videos": []
+        },
+        {
+            "name": "pm-components",
+            "displayName": "pm-components",
+            "summary": "",
+            "website": "",
+            "githubUrl": "https://github.com/rycastaneda/pm-components",
+            "primaryLanguage": "JavaScript",
+            "languages": [
+                "JavaScript",
+                "HTML",
+                "CSS"
+            ],
+            "libraries": [],
+            "images": [],
+            "videos": []
+        },
+        {
+            "name": "rycastaneda.github.io",
+            "displayName": "rycastaneda.github.io",
+            "summary": "",
+            "website": "",
+            "githubUrl": "https://github.com/rycastaneda/rycastaneda.github.io",
+            "primaryLanguage": "HTML",
+            "languages": [
+                "CSS",
+                "Shell",
+                "JavaScript",
+                "HTML"
+            ],
+            "libraries": [],
+            "images": [],
+            "videos": []
+        }
+    ],
+    "work": [
+        {
+            "company": "Acquire Asia pacific - LKG Group and NBL",
+            "position": "Senior Frontend Engineer",
+            "website": "nbl.com.au",
+            "location": "Manila",
+            "summary": "Part of the frontend team that handled NBL which is Australia’s version of the NBA, in which we successfully delivered 1 month ahead of deadline. Page speed improved by about 8 secs of load time and had a 60% increase of site engagement. ",
+            "isCurrentRole": true,
+            "startDate": "2018-02-01",
+            "endDate": "",
+            "start": {
+                "year": 2018,
+                "month": 2
+            },
+            "end": {},
+            "highlights": [
+                "Also handled Shopify clients that had their design ready which had a successful launch after a developer turnover. \n",
+                "Created a new donation landing page for Stroke Foundation a known national charity organization in Australia",
+                "Created the landing page for clients such as Armaguard, FirstEver, OccupyPS, Maison Carnegie building and Victorian Chamber of Commerce and Industry "
+            ]
+        },
+        {
+            "company": "Zigzag Media - Plantminer",
+            "position": "Senior Frontend Developer",
+            "website": "http://www.plantminer.com.au",
+            "location": "Manila",
+            "summary": "Became part of the team that developed Plantminer Website, helped improve page load times and client site retention. PlantMiner.com.au was launched in May 2013 and is now Australia’s largest plant and equipment hire marketplace with over 400,000 items for hire from over 2,500 supplies Australia wide. It is a free online tool for those looking to hire plant and equipment. CDuring my time on PlantMiner (www.plantminer.com.au) joins the Technology Fast 500 Asia Pacific 2016 Rank 88 with 598% fiscal year revenue growth! ",
+            "isCurrentRole": false,
+            "startDate": "2016-05-01",
+            "endDate": "2018-02-01",
+            "start": {
+                "year": 2016,
+                "month": 5
+            },
+            "end": {
+                "year": 2018,
+                "month": 2
+            },
+            "highlights": [
+                "Setup end to end testing framework in replacement for CasperJS using webdriverIO, phantomJS, Selenium",
+                "Built reusable and system critical components using ReactJS and Redux",
+                "Provided training about ReactJS, Selenium and modern Javascript technologies "
+            ]
+        },
+        {
+            "company": "Freedom MCN",
+            "position": "Web Developer",
+            "website": "http://www.freedom.tm",
+            "location": "Manila, Philippines",
+            "summary": "Became part of the team that developed Freedom! Dashboard, which is the main product of the company, it is the fastest growing MCN in history of YouTube. Has around a million user accounts created since it’s been live. Created multiple modules like the earnings module of the app which includes the accounting. Contributed to most admin functions of the dashboard like accepting applications, setting partner revenue share, and similar administrative services, also created the sponsorship module. Written in Laravel PHP and AngularJS running on AWS environment with MySQL as database. Worked on most frontend tasks with AngularJS and Javascript.\n",
+            "isCurrentRole": false,
+            "startDate": "2013-07-01",
+            "endDate": "2016-05-01",
+            "start": {
+                "year": 2013,
+                "month": 7
+            },
+            "end": {
+                "year": 2016,
+                "month": 5
+            },
+            "highlights": [
+                "Started as a full-stack developer, but later on focused on front-end as the company gathered more people and team.",
+                "Had the chance to became a team lead which helped the team by assigning tasks and checking codes before deployments.",
+                "Helped the company and the CEO itself for application ideas, implementations and technology stack to be used(especially front-end).",
+                "Implemented most of AngularJS standard conventions of frontend development.",
+                "Created multiple boilerplate that the company used for front-end developments.",
+                "As a pioneer developer of the company, I helped the company in every way possible which includes non-dev works.\n"
+            ]
+        },
+        {
+            "company": "Openovate Labs",
+            "position": " Junior software developer",
+            "website": "",
+            "location": "Manila",
+            "summary": "Helped build web apps for multiple clients, the tasks includes slicing design prototypes for creating image sprites for the app and testing.",
+            "isCurrentRole": false,
+            "startDate": "2013-06-01",
+            "endDate": "2013-07-01",
+            "start": {
+                "year": 2013,
+                "month": 6
+            },
+            "end": {
+                "year": 2013,
+                "month": 7
+            },
+            "highlights": []
+        }
+    ],
+    "publications": [
+        {
+            "name": "Speaker",
+            "summary": "Talked about how we consume the YouTube Api",
+            "publisher": "Google Developer Group Devfest",
+            "website": "",
+            "releaseDate": null,
+            "fullReleaseDate": {
+                "year": null,
+                "month": null,
+                "day": null
+            }
+        }
+    ],
+    "education": [
+        {
+            "institution": "Polytechnic University of the Philippines",
+            "area": "Information Technology",
+            "studyType": "Bachelor of Science in Information",
+            "website": "",
+            "startDate": "2009-01-01",
+            "endDate": "2013-01-01",
+            "start": {
+                "year": 2009,
+                "month": 1
+            },
+            "end": {
+                "year": 2013,
+                "month": null
+            },
+            "description": "",
+            "activities": "",
+            "gpa": "",
+            "courses": []
+        }
+    ]
+}

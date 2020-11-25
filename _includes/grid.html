@@ -1,0 +1,7 @@
+<div class="grid">
+    {% for client in site.clients %}
+    <div class="{{client.class}}">
+        <a href="{{client.link}}"><img src="{{client.image.path}}" alt=""></a>
+    </div>
+    {% endfor %}
+</div>

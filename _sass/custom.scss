@@ -1,0 +1,112 @@
+
+.cv-grid {
+    display: grid;
+    position: relative;
+    grid-gap: 40px;
+}
+
+@include breakpoint($medium) {
+    .cv-grid {
+        grid-template-columns: minmax( 200px, 25%) 1fr;
+    }
+
+    .work {
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    
+}
+
+
+.work::-webkit-scrollbar
+{
+	width: 2px;
+}
+
+.work::-webkit-scrollbar-thumb
+{
+    background-color: #ccc;
+}
+
+.picture {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+}
+
+.picture img {
+    border-radius: 100px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-rows: repeat(3, 200px);
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+    opacity: 1;
+    padding: 20px 0px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.grid>div {
+    display: grid;
+    place-items: center;
+    /* height: 300px;
+    width: 300px; */
+}
+
+.nbl1, .big,
+.nbl {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.medium,
+.vcci, 
+.freedom,
+.amity,
+.lkpg,
+.firstever {
+    grid-column: span 2;
+}
+
+.plantminer {
+    grid-column: span 2;
+}
+
+
+.grid img {
+    width: 300px;
+    /* height: 300px; */
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: rgba(0,0,0, 0.5);
+    bottom: 0px;
+
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    justify-content: center;
+
+    h4 {
+        margin: 0px;
+    }
+}
+
+
+
+.sidebar-toggle-wrapper {
+    background: transparent;
+}
+
+.topfixed {
+    position: fixed;
+    z-index: 999;
+}

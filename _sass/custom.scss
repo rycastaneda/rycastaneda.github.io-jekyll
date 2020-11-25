@@ -7,7 +7,7 @@
 
 @include breakpoint($medium) {
     .cv-grid {
-        grid-template-columns: minmax( 200px, 25%) 1fr;
+        grid-template-columns: minmax( 200px, 350px) 1fr;
     }
 
     .work {
@@ -57,18 +57,13 @@
     width: 300px; */
 }
 
-.nbl1, .big,
-.nbl {
+.big
+ {
     grid-column: span 2;
     grid-row: span 2;
 }
 
-.medium,
-.vcci, 
-.freedom,
-.amity,
-.lkpg,
-.firstever {
+.medium {
     grid-column: span 2;
 }
 
@@ -97,6 +92,7 @@
 
     h4 {
         margin: 0px;
+        padding-left: 3rem;
     }
 }
 

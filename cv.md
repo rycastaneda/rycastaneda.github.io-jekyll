@@ -4,6 +4,6 @@ layout: cv
 actions:
   - label: "Download as PDF"
     icon: pdf
-    url: "#pdf-asset"
+    url: "https://gitconnected.com/rycastaneda/resume"
 ---
 

@@ -11,17 +11,26 @@ layout: default
       <div class="entries fixed">
         {% include cv/intro.html %}
         {% include cv/basics.html %}
+        {% include cv/skill-tabs.html %}
+        {% include cv/education.html %}
+        {% if page.actions %}
+        <ul class="intro-actions">
+          {% for action in page.actions %}
+          <li><a href="{{ action.url }}" class="btn">{% if action.icon %}<span
+                class="icon">{% include {{ action.icon | prepend: 'icon-' | append: '.svg' }} %}</span>{% endif %}{{ action.label }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <!-- {% include cv/publications.html %} -->
       </div>
       <div class="entries work">
-        {% include cv/skill-tabs.html %}
         {% include cv/work.html %}
-        {% include cv/volunteer.html %}
-        {% include cv/education.html %}
+        <!-- {% include cv/volunteer.html %}
         {% include cv/awards.html %}
-        {% include cv/publications.html %}
         {% include cv/languages.html %}
         {% include cv/interests.html %}
-        {% include cv/references.html %}
+        {% include cv/references.html %} -->
       </div>
     </div>
 </main>

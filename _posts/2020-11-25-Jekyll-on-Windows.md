@@ -14,7 +14,7 @@ I was searching for a an SSG (Static Site Generator) tool for personal use, seve
    - Mustache
    - placeholders.js
 
-Jekyll has an amazing community, tons of themes and the free ones such as this are not too shabby.
+Jekyll has an amazing community, tons of themes are available and the free ones such as this one are not too shabby.
 
 ## Challenges
 
@@ -23,4 +23,3 @@ Currently I am using a Windows machine and Jekyll cannot be installed normally o
 Thankfully after some googling and trial and errors. I came across this guide [here](https://learn.cloudcannon.com/jekyll/install-jekyll-on-windows/) and the section for 
 [Ruby on Windows](https://jekyllrb.com/docs/installation/windows/) finally worked for me. Being able to type `ruby` and `gem` feels so good.
 
-## PROS and CONS

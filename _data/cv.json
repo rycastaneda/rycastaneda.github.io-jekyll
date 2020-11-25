@@ -49,7 +49,7 @@
             "name": "VueJS",
             "level": "Expert",
             "rating": 5,
-            "yearsOfExperience": 2,
+            "yearsOfExperience": 3,
             "keywords": []
         },
         {
@@ -64,6 +64,62 @@
             "level": "Advanced",
             "rating": 4,
             "yearsOfExperience": null,
+            "keywords": []
+        },
+        {
+            "name": "NodeJS",
+            "level": "Intermediate",
+            "rating": 3,
+            "yearsOfExperience": 2,
+            "keywords": []
+        },
+        {
+            "name": "PHP",
+            "level": "Advanced",
+            "rating": 4,
+            "yearsOfExperience": 7,
+            "keywords": []
+        },
+        {
+            "name": "Jquery",
+            "level": "Expert",
+            "rating": 5,
+            "yearsOfExperience": null,
+            "keywords": []
+        },
+        {
+            "name": "Redux",
+            "level": "Advanced",
+            "rating": 4,
+            "yearsOfExperience": 2,
+            "keywords": []
+        },
+        {
+            "name": "Shopify",
+            "level": "Advanced",
+            "rating": 4,
+            "yearsOfExperience": 3,
+            "keywords": []
+        },
+        {
+            "name": "Selenium",
+            "level": "Learning",
+            "rating": 1,
+            "yearsOfExperience": null,
+            "keywords": []
+        },
+        {
+            "name": "WebdriverIO",
+            "level": "Intermediate",
+            "rating": 3,
+            "yearsOfExperience": null,
+            "keywords": []
+        },
+        {
+            "name": "Enzyme",
+            "level": "Intermediate",
+            "rating": 3,
+            "yearsOfExperience": 1,
             "keywords": []
         }
     ],
@@ -132,11 +188,11 @@
     ],
     "work": [
         {
-            "company": "Acquire Asia pacific - LKG Group and NBL",
+            "company": "Acquire Asia Pacific - LKG Group and NBL",
             "position": "Senior Frontend Engineer",
             "website": "nbl.com.au",
             "location": "Manila",
-            "summary": "Part of the frontend team that handled NBL which is Australia’s version of the NBA, in which we successfully delivered 1 month ahead of deadline. Page speed improved by about 8 secs of load time and had a 60% increase of site engagement. ",
+            "summary": "Part of the frontend team that handled NBL which is Australia’s version of the NBA, in which we successfully delivered 1 month ahead of deadline. Page speed improved by about 5 secs of load time and had a 60% increase of site engagement. ",
             "isCurrentRole": true,
             "startDate": "2018-02-01",
             "endDate": "",
@@ -146,9 +202,11 @@
             },
             "end": {},
             "highlights": [
-                "Also handled Shopify clients that had their design ready which had a successful launch after a developer turnover. \n",
-                "Created a new donation landing page for Stroke Foundation a known national charity organization in Australia",
-                "Created the landing page for clients such as Armaguard, FirstEver, OccupyPS, Maison Carnegie building and Victorian Chamber of Commerce and Industry "
+                "Also handled Shopify clients that had their design ready but still requires some development work.  All projects had a successful launch after the developer turnover. \n",
+                "Created a new donation landing page for Stroke Foundation a known national charity organization in Australia, had an increase of 20% in total of donations.",
+                "Created the landing page for Armaguard, a leading currency management provider in the whole nation. Made their site easily editable, loads blazingly fast without compromising design",
+                "Made landing pages for some properties of Amity Property Group, which lead them to more leads upon launch.",
+                "Made improvements to Newsmodo and Frankly clients, fixing stretched images and promoted suggestions on how to improve their page load"
             ]
         },
         {
@@ -156,7 +214,7 @@
             "position": "Senior Frontend Developer",
             "website": "http://www.plantminer.com.au",
             "location": "Manila",
-            "summary": "Became part of the team that developed Plantminer Website, helped improve page load times and client site retention. PlantMiner.com.au was launched in May 2013 and is now Australia’s largest plant and equipment hire marketplace with over 400,000 items for hire from over 2,500 supplies Australia wide. It is a free online tool for those looking to hire plant and equipment. CDuring my time on PlantMiner (www.plantminer.com.au) joins the Technology Fast 500 Asia Pacific 2016 Rank 88 with 598% fiscal year revenue growth! ",
+            "summary": "Became part of the team that developed Plantminer Website, helped improve page load times and client site retention. PlantMiner.com.au was launched in May 2013 and is now Australia’s largest plant and equipment hire marketplace with over 400,000 items for hire from over 2,500 supplies Australia wide. It is a free online tool for those looking to hire plant and equipment. During my time on PlantMiner (www.plantminer.com.au) joins the Technology Fast 500 Asia Pacific 2016 Rank 88 with 598% fiscal year revenue growth! ",
             "isCurrentRole": false,
             "startDate": "2016-05-01",
             "endDate": "2018-02-01",
@@ -171,7 +229,8 @@
             "highlights": [
                 "Setup end to end testing framework in replacement for CasperJS using webdriverIO, phantomJS, Selenium",
                 "Built reusable and system critical components using ReactJS and Redux",
-                "Provided training about ReactJS, Selenium and modern Javascript technologies "
+                "Provided training about ReactJS, Selenium and modern Javascript technologies ",
+                "Led the frontend development team for two years, providing effective cross-site modules that require a strict deadline "
             ]
         },
         {
@@ -238,7 +297,7 @@
         {
             "institution": "Polytechnic University of the Philippines",
             "area": "Information Technology",
-            "studyType": "Bachelor of Science in Information",
+            "studyType": "Bachelor of Science",
             "website": "",
             "startDate": "2009-01-01",
             "endDate": "2013-01-01",
@@ -255,5 +314,10 @@
             "gpa": "",
             "courses": []
         }
-    ]
+    ],
+    "volunteer": [],
+    "awards": [],
+    "languages": [],
+    "interests": [],
+    "references": []
 }

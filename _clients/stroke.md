@@ -1,6 +1,6 @@
 ---
 title: "Stroke Foundation"
-class: medium
+class: medium stroke
 image: 
   path: https://media.healthdirect.org.au/images/logos/w300/stroke-foundation-logo-014362.png
 link: https://give.strokefoundation.org.au/

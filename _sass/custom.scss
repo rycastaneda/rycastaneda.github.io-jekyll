@@ -9,12 +9,6 @@
     .cv-grid {
         grid-template-columns: minmax( 200px, 350px) 1fr;
     }
-
-    .work {
-        height: 100vh;
-        overflow-y: scroll;
-    }
-    
 }
 
 
@@ -77,12 +71,17 @@
     /* height: 300px; */
 }
 
+.stroke {
+    padding: 2rem 0;
+}
+
 .caption {
     position: absolute;
     left: 0;
     right: 0;
     height: 100px;
     background: rgba(0,0,0, 0.5);
+    color: #eee;
     bottom: 0px;
 
     display: flex;
@@ -94,8 +93,9 @@
         margin: 0px;
         padding-left: 3rem;
     }
-}
 
+    p {margin: 0;}
+}
 
 
 .sidebar-toggle-wrapper {
@@ -105,4 +105,30 @@
 .topfixed {
     position: fixed;
     z-index: 999;
+}
+
+.taxonomy {
+    background-color: $accent-color;
+    border-radius: 100px;
+    height: 40px;
+    display: inline-block;
+    .title {
+        position: relative;
+        top: 8px;
+        margin-right: 1rem;
+        color: #fff;
+        margin-left: 1rem;
+        display: block;
+    }
+}
+
+.full-screen {
+    height: 100vh;
+}
+
+.regular-image {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: auto;
 }

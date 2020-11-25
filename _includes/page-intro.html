@@ -6,13 +6,15 @@
   {% endunless %}
   {% assign intro_image = intro_image | escape %}
   <div class="intro-image">
-    <img src="{{ intro_image }}" alt="{{ page.title }}">
-
+    <img src="{{ intro_image }}" alt="{{ page.title }}" class="{{page.image.class}}">
+    {% if page.intro_image_caption %}
     <div class="caption">
       <h4>
-        Alona Beach - Bohol, Philippines
+        {{ page.intro_image_caption | markdownify }}
       </h4>
     </div>
+    {% endif %}
+
   </div>
   {% endif %}
 

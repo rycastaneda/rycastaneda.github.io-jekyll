@@ -12,15 +12,15 @@
   font-family: $base-font-family;
   font-weight: bold;
   line-height: 1;
-
+  
   @include breakpoint($medium) {
     padding-left: 2rem;
   }
-
+  
   @include breakpoint($large) {
     padding-left: 5vw;
   }
-
+  
   a {
     display: -ms-flexbox;
     display: -webkit-box;
@@ -29,8 +29,14 @@
     -webkit-box-align: center;
     align-items: center;
     min-height: $site-image-height;
-    color: $text-color;
+    color: $accent-color;
     text-decoration: none;
+    width: 280px;
+    
+    background: #f6f5f4;
+    border-radius: 40px;
+    box-shadow: -10px 10px 80px rgba(0,0,0,.1);
+    padding: 1rem;
   }
 }
 
